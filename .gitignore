@@ -1,5 +1,5 @@
-.openclaw/
 node_modules/
+.openclaw/
 memory/.dreams/
 *.log
 .env
@@ -11,7 +11,9 @@ memory/.dreams/
 .tmp/
 .tmp-home/
 .pm2/
+.worker-tools/
+__pycache__/
+*.pyc
+projects/*/node_modules/
+projects/*/.next/
 projects/
-data/
-deploy/
-reports/
