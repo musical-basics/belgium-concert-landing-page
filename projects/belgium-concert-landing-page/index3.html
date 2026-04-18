@@ -1,0 +1,276 @@
+<!--
+  aesthetic_dna: Editorial Brutalism & High-End Exhibition Poster
+  ui_paradigm: Architectonic Grid Layout. Moving away from standard SaaS 'Bento cards' to a structured, editorial aesthetic with visible hairlines, dramatic asymmetric scaling, and spatial tension suitable for a prestigious classical concert.
+  palette_choice: Light Mode execution utilizing the provided dark brand tokens (#121622, #20242F) as intense 'ink' for typography and structural borders against a soft, premium gallery-white background, maximizing contrast and legibility.
+-->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lionel Yu Live in Belgium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        brandPrimary: '#121622',
+                        brandSecondary: '#20242F',
+                        brandAccent: '#B9C1D1',
+                        brandBgToken: '#121622', 
+                        brandText: '#3D404A',
+                        brandLink: '#B9C1D1',
+                        galleryWhite: '#F4F4F2',
+                    },
+                    fontSize: {
+                        'h1': ['72px', '0.95'],
+                        'h2': ['23.2px', '1.2'],
+                        'body': ['18.88px', '1.6'],
+                    },
+                    spacing: {
+                        'base-unit': '12px',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'reveal-width': 'revealWidth 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(24px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        revealWidth: {
+                            '0%': { width: '0%', opacity: '0' },
+                            '100%': { width: '100%', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Typography scale adjustments for fluidity */
+        @media (max-width: 768px) {
+            .fluid-h1 { font-size: clamp(48px, 8vw, 72px) !important; line-height: 1 !important; }
+        }
+        
+        /* Structural hairlines for editorial feel */
+        .hairline-top { border-top: 1px solid rgba(185, 193, 209, 0.4); }
+        .hairline-bottom { border-bottom: 1px solid rgba(185, 193, 209, 0.4); }
+        .hairline-left { border-left: 1px solid rgba(185, 193, 209, 0.4); }
+        .hairline-right { border-right: 1px solid rgba(185, 193, 209, 0.4); }
+
+        /* Custom selection color */
+        ::selection {
+            background-color: var(--brandPrimary, #121622);
+            color: #ffffff;
+        }
+
+        /* Image parallax wrapper styling */
+        .img-reveal-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+        }
+        .img-scale-hover {
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .img-reveal-wrapper:hover .img-scale-hover {
+            transform: scale(1.05);
+        }
+
+        /* Hover fill effect for primary button */
+        .btn-hover-fill {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-hover-fill::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #20242F; /* Secondary color */
+            z-index: -1;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .btn-hover-fill:hover::before {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        /* Sticky header backdrop */
+        .glass-nav {
+            background: rgba(244, 244, 242, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-galleryWhite text-brandPrimary selection:bg-brandPrimary selection:text-white min-h-screen flex flex-col">
+
+    <!-- Sticky Navigation / Utility Bar -->
+    <nav class="fixed top-0 w-full z-50 glass-nav hairline-bottom transition-all duration-300 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold tracking-widest uppercase text-brandSecondary">Lionel Yu</span>
+            <span class="w-1 h-1 rounded-full bg-brandSecondary/50"></span>
+            <span class="text-xs font-medium tracking-wide text-brandSecondary/70">Zaventem '26</span>
+        </div>
+        <a href="#tickets" class="group flex items-center gap-2 text-sm font-medium hover:text-brandSecondary transition-colors">
+            Get Tickets
+            <i class="ph ph-arrow-down-right transition-transform group-hover:translate-y-[2px] group-hover:translate-x-[2px]"></i>
+        </a>
+    </nav>
+
+    <!-- Main Architectural Wrapper -->
+    <main class="flex-grow pt-[80px]"> <!-- Offset for fixed nav -->
+        
+        <!-- Hero Section: Macro Layout Grid -->
+        <section class="max-w-[1800px] mx-auto px-4 sm:px-8 border-x border-brandAccent/20 min-h-[85vh] flex flex-col">
+            <div class="grid grid-cols-1 lg:grid-cols-12 flex-grow">
+                
+                <!-- Left Panel: Typography & Details -->
+                <div class="lg:col-span-7 flex flex-col justify-between pt-16 pb-8 lg:pr-16 relative z-10 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    
+                    <!-- Pre-header badge equivalent -->
+                    <div class="inline-flex items-center gap-3 mb-8">
+                        <div class="flex h-6 items-center rounded-full border border-brandPrimary px-3 text-[11px] font-semibold uppercase tracking-widest text-brandPrimary">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandPrimary mr-2 animate-pulse"></span>
+                            Live in Belgium
+                        </div>
+                    </div>
+
+                    <!-- Main Typography -->
+                    <div class="mb-12">
+                        <h1 class="fluid-h1 text-h1 font-medium tracking-[-0.03em] text-brandPrimary mb-6">
+                            Lionel Yu Live in<br/>Belgium, June<br/>11, 2026
+                        </h1>
+                        <p class="text-body text-brandText max-w-xl pr-4">
+                            Classical piano, reimagined Nightmare arrangements, and original music, live in Zaventem on June 11.
+                        </p>
+                    </div>
+
+                    <!-- Meso-Architecture: Data Density Info Grid -->
+                    <div class="grid grid-cols-2 gap-px bg-brandAccent/30 border border-brandAccent/30 mt-auto">
+                        <div class="bg-galleryWhite p-6 sm:p-8 flex flex-col justify-center">
+                            <span class="text-[10px] font-semibold uppercase tracking-widest text-brandText mb-2">Date</span>
+                            <span class="text-[16px] font-medium text-brandPrimary leading-tight">Thursday, June 11, 2026</span>
+                        </div>
+                        <div class="bg-galleryWhite p-6 sm:p-8 flex flex-col justify-center">
+                            <span class="text-[10px] font-semibold uppercase tracking-widest text-brandText mb-2">Time</span>
+                            <span class="text-[16px] font-medium text-brandPrimary leading-tight">19:30 CEST</span>
+                        </div>
+                        <div class="bg-galleryWhite p-6 sm:p-8 flex flex-col justify-center">
+                            <span class="text-[10px] font-semibold uppercase tracking-widest text-brandText mb-2">Venue</span>
+                            <span class="text-[16px] font-medium text-brandPrimary leading-tight">Theaterzaal Maupertuis,<br/>CC De Factorij</span>
+                        </div>
+                        <div class="bg-galleryWhite p-6 sm:p-8 flex flex-col justify-center">
+                            <span class="text-[10px] font-semibold uppercase tracking-widest text-brandText mb-2">Location</span>
+                            <span class="text-[16px] font-medium text-brandPrimary leading-tight">Zaventem, Belgium</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Panel: Image Display -->
+                <div class="lg:col-span-5 relative py-8 lg:py-16 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="img-reveal-wrapper w-full h-[60vh] lg:h-[80vh] shadow-2xl shadow-brandPrimary/10 border border-brandAccent/20">
+                        <img 
+                            src="https://images.unsplash.com/photo-1552554746-99778103cbdf?q=80&w=2671&auto=format&fit=crop" 
+                            alt="Lionel Yu playing piano in a classical concert hall" 
+                            class="img-scale-hover w-full h-full object-cover object-center"
+                        />
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-brandAccent/30"></div>
+
+        <!-- Content Section: About & Program -->
+        <section class="max-w-[1800px] mx-auto px-4 sm:px-8 border-x border-brandAccent/20 py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+                
+                <!-- About the Concert -->
+                <div class="lg:col-span-5 lg:pr-12 lg:border-r lg:border-brandAccent/30">
+                    <h2 class="text-h2 font-medium tracking-tight text-brandPrimary mb-6 flex items-center gap-3">
+                        <i class="ph ph-info text-2xl text-brandText"></i>
+                        About the Concert
+                    </h2>
+                    <p class="text-body text-brandText leading-relaxed">
+                        Join Lionel Yu in Zaventem for a live concert that brings together classical piano, reimagined Nightmare arrangements, and original music in one night.
+                    </p>
+                </div>
+
+                <!-- Program Highlights -->
+                <div class="lg:col-span-7 lg:pl-4">
+                    <h2 class="text-h2 font-medium tracking-tight text-brandPrimary mb-8 flex items-center gap-3">
+                        <i class="ph ph-music-notes text-2xl text-brandText"></i>
+                        Program Highlights
+                    </h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start group">
+                            <span class="text-brandPrimary mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                            <span class="text-[20px] text-brandPrimary font-light">Chopin and other classical piano repertoire</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-brandPrimary mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                            <span class="text-[20px] text-brandPrimary font-light">Reimagined Beethoven, Vivaldi, Liszt, and Rachmaninoff</span>
+                        </li>
+                        <li class="flex items-start group">
+                            <span class="text-brandPrimary mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                            <span class="text-[20px] text-brandPrimary font-light">Original works including <em class="font-serif italic font-medium">Rolling Thunder</em>, <em class="font-serif italic font-medium">Colors of the Soul</em>, and <em class="font-serif italic font-medium">Beethoven Virus</em></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Divider Line -->
+        <div class="w-full h-px bg-brandAccent/30"></div>
+
+        <!-- Terminal / Action Section -->
+        <section id="tickets" class="max-w-[1800px] mx-auto px-4 sm:px-8 border-x border-brandAccent/20 bg-brandPrimary aspect-[21/9] min-h-[40vh] flex flex-col items-center justify-center relative overflow-hidden group py-24">
+            
+            <!-- Abstract background shape -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
+                <div class="w-[80vw] h-[80vw] border-[1px] border-white rounded-full group-hover:scale-110 transition-transform duration-1000 ease-in-out"></div>
+            </div>
+
+            <div class="relative z-10 text-center flex flex-col items-center">
+                <span class="text-brandAccent/70 uppercase tracking-[0.2em] text-sm mb-4 block">Secure your seat</span>
+                <h2 class="text-[48px] sm:text-[64px] font-medium tracking-tight text-white mb-8">
+                    Get Tickets
+                </h2>
+                <div class="flex flex-col items-center gap-4">
+                    <button class="btn-hover-fill bg-[#111111] text-galleryWhite font-medium text-[16px] px-10 py-5 rounded-[999px] flex items-center gap-3 transition-transform hover:-translate-y-1 ring-1 ring-white/10 hover:ring-white/30 shadow-xl shadow-black/20">
+                        Get Tickets
+                        <i class="ph ph-ticket text-xl"></i>
+                    </button>
+                    <p class="text-brandAccent/50 text-sm mt-4 font-light">A live evening performance in Zaventem, Belgium.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Structural Close -->
+    <footer class="w-full border-t border-brandAccent/20 bg-galleryWhite py-6 px-8 flex justify-between items-center text-xs text-brandText/60">
+        <p>&copy; 2026 Lionel Yu Live. All rights reserved.</p>
+        <p>Location: Zaventem, Belgium</p>
+    </footer>
+
+</body>
+</html>
