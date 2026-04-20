@@ -67,8 +67,8 @@ export default function V1Page() {
             <div className="lg:col-span-5 relative py-8 lg:py-16 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
               <div className="relative w-full h-[60vh] lg:h-[80vh] rounded-[24px] overflow-hidden shadow-2xl shadow-[#121622]/10 border border-[#B9C1D1]/20 group">
                 <Image
-                  src="https://images.unsplash.com/photo-1552554746-99778103cbdf?q=80&w=2671&auto=format&fit=crop"
-                  alt="Lionel Yu playing piano in a classical concert hall"
+                  src="/images/hero.png"
+                  alt="Lionel Yu Carnegie Hall Performance"
                   fill
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 />
