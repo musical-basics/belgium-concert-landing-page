@@ -8,10 +8,10 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <span className="text-xs font-semibold tracking-widest uppercase text-[#20242F]">Lionel Yu</span>
           <span className="w-1 h-1 rounded-full bg-[#20242F]/50"></span>
-          <span className="text-xs font-medium tracking-wide text-[#20242F]/70">Zaventem '26</span>
+          <span className="text-xs font-medium tracking-wide text-[#20242F]/70">Zaventem '26'</span>
         </div>
         <a href="#tickets" className="group flex items-center gap-2 text-sm font-medium hover:text-[#20242F] transition-colors">
-          Get Tickets
+          Tickets / Tickets
           <ArrowDownRight className="w-4 h-4 transition-transform group-hover:translate-y-[2px] group-hover:translate-x-[2px]" />
         </a>
       </nav>
@@ -23,35 +23,48 @@ export default function Home() {
               <div className="inline-flex items-center gap-3 mb-8">
                 <div className="flex h-6 items-center rounded-full border border-[#121622] px-3 text-[11px] font-semibold uppercase tracking-widest text-[#121622]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#121622] mr-2 animate-pulse"></span>
-                  Live in Belgium
+                  Live in België / Live in Belgium
                 </div>
               </div>
 
-              <div className="mb-12">
-                <h1 className="text-[48px] md:text-[72px] font-medium leading-[0.95] tracking-[-0.03em] text-[#121622] mb-6">
-                  Lionel Yu Live in<br className="hidden md:block" />Belgium, June<br className="hidden md:block" />11, 2026
-                </h1>
-                <p className="text-[18.88px] leading-[1.6] text-[#3D404A] max-w-xl pr-4">
-                  Classical piano, reimagined Nightmare arrangements, and original music, live in Zaventem on June 11.
-                </p>
+              <div className="mb-12 space-y-6">
+                <div>
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3D404A] mb-3">Nederlands</p>
+                  <h1 className="text-[40px] md:text-[64px] font-medium leading-[0.95] tracking-[-0.03em] text-[#121622] mb-4">
+                    Lionel Yu, klassiek piano en EDM, 11 juni 2026
+                  </h1>
+                  <p className="text-[18px] leading-[1.6] text-[#3D404A] max-w-2xl">
+                    Een avond waarop klassieke grootmeesters en elektronische muziek samenkomen. Live in Zaventem op 11 juni.
+                  </p>
+                </div>
+
+                <div className="border-t border-[#B9C1D1]/30 pt-6">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3D404A] mb-3">English</p>
+                  <h2 className="text-[34px] md:text-[52px] font-medium leading-[1] tracking-[-0.03em] text-[#121622] mb-4">
+                    Lionel Yu, Classical Piano and EDM, June 11, 2026
+                  </h2>
+                  <p className="text-[18px] leading-[1.6] text-[#3D404A] max-w-2xl">
+                    Where classical masterworks meet electronic music. One extraordinary night, live in Zaventem on June 11.
+                  </p>
+                </div>
               </div>
 
               <div className="grid grid-cols-2 gap-px bg-[#B9C1D1]/30 border border-[#B9C1D1]/30 mt-auto">
                 <div className="bg-[#F4F4F2] p-6 sm:p-8 flex flex-col justify-center">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Date</span>
-                  <span className="text-[16px] font-medium text-[#121622] leading-tight">Thursday, June 11, 2026</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Datum / Date</span>
+                  <span className="text-[16px] font-medium text-[#121622] leading-tight">Donderdag 11 juni 2026 / Thursday, June 11, 2026</span>
                 </div>
                 <div className="bg-[#F4F4F2] p-6 sm:p-8 flex flex-col justify-center">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Time</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Aanvang / Time</span>
                   <span className="text-[16px] font-medium text-[#121622] leading-tight">19:30 CEST</span>
                 </div>
                 <div className="bg-[#F4F4F2] p-6 sm:p-8 flex flex-col justify-center">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Venue</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Zaal / Venue</span>
                   <span className="text-[16px] font-medium text-[#121622] leading-tight">Theaterzaal Maupertuis,<br />CC De Factorij</span>
                 </div>
                 <div className="bg-[#F4F4F2] p-6 sm:p-8 flex flex-col justify-center">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Location</span>
-                  <span className="text-[16px] font-medium text-[#121622] leading-tight">Zaventem, Belgium</span>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-[#3D404A] mb-2">Locatie / Location</span>
+                  <span className="text-[16px] font-medium text-[#121622] leading-tight">Zaventem, België / Belgium</span>
                 </div>
               </div>
             </div>
@@ -73,35 +86,64 @@ export default function Home() {
 
         <section className="max-w-[1800px] mx-auto px-4 sm:px-8 border-x border-[#B9C1D1]/20 py-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-            <div className="lg:col-span-5 lg:pr-12 lg:border-r lg:border-[#B9C1D1]/30">
-              <h2 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-6 flex items-center gap-3">
-                <Info className="w-6 h-6 text-[#3D404A]" />
-                About the Concert
-              </h2>
-              <p className="text-[18.88px] leading-[1.6] text-[#3D404A]">
-                Join Lionel Yu in Zaventem for a live concert that brings together classical piano, reimagined Nightmare arrangements, and original music in one night.
-              </p>
+            <div className="lg:col-span-5 lg:pr-12 lg:border-r lg:border-[#B9C1D1]/30 space-y-8">
+              <div>
+                <h2 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-6 flex items-center gap-3">
+                  <Info className="w-6 h-6 text-[#3D404A]" />
+                  Over het concert
+                </h2>
+                <p className="text-[18px] leading-[1.7] text-[#3D404A]">
+                  Pianist en componist Lionel Yu combineert klassieke pianomuziek met elektronische muziek en EDM tot iets wat je nog nooit hebt gezien. Met 1,2 miljoen volgers op YouTube en optredens in prestigieuze zalen wereldwijd brengt hij op 11 juni zijn bijzondere show naar Zaventem, in samenwerking met Lions Club Zaventem National Airport Erasmus.
+                </p>
+              </div>
+
+              <div className="border-t border-[#B9C1D1]/30 pt-8">
+                <h3 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-6">About the Concert</h3>
+                <p className="text-[18px] leading-[1.7] text-[#3D404A]">
+                  Pianist and composer Lionel Yu has built 1.2 million YouTube followers by making classical music feel electric. On June 11, he brings that high-energy blend of classical piano, EDM, and original composition to Zaventem, in partnership with Lions Club Zaventem National Airport Erasmus.
+                </p>
+              </div>
             </div>
 
-            <div className="lg:col-span-7 lg:pl-4">
-              <h2 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-8 flex items-center gap-3">
-                <Music className="w-6 h-6 text-[#3D404A]" />
-                Program Highlights
-              </h2>
-              <ul className="space-y-6">
-                <li className="flex items-start group">
-                  <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                  <span className="text-[20px] text-[#121622] font-light">Chopin and other classical piano repertoire</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                  <span className="text-[20px] text-[#121622] font-light">Reimagined Beethoven, Vivaldi, Liszt, and Rachmaninoff</span>
-                </li>
-                <li className="flex items-start group">
-                  <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                  <span className="text-[20px] text-[#121622] font-light">Original works including <em className="font-serif italic font-medium">Rolling Thunder</em>, <em className="font-serif italic font-medium">Colors of the Soul</em>, and <em className="font-serif italic font-medium">Beethoven Virus</em></span>
-                </li>
-              </ul>
+            <div className="lg:col-span-7 lg:pl-4 space-y-8">
+              <div>
+                <h2 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-8 flex items-center gap-3">
+                  <Music className="w-6 h-6 text-[#3D404A]" />
+                  Programmahoogtepunten
+                </h2>
+                <ul className="space-y-6">
+                  <li className="flex items-start group">
+                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                    <span className="text-[20px] text-[#121622] font-light">Herwerkte klassiekers van Chopin, Rachmaninov, Beethoven, Liszt en Vivaldi</span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                    <span className="text-[20px] text-[#121622] font-light">Originele composities zoals <em className="font-serif italic font-medium">Rolling Thunder</em>, <em className="font-serif italic font-medium">Fires of a Revolution</em> en <em className="font-serif italic font-medium">Courage</em></span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                    <span className="text-[20px] text-[#121622] font-light">Een unieke kruisbestuiving van concertzaal en dansvloer</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="border-t border-[#B9C1D1]/30 pt-8">
+                <h3 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-8">Program Highlights</h3>
+                <ul className="space-y-6">
+                  <li className="flex items-start group">
+                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                    <span className="text-[20px] text-[#121622] font-light">Reimagined classics by Chopin, Rachmaninoff, Beethoven, Liszt, and Vivaldi</span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                    <span className="text-[20px] text-[#121622] font-light">Original compositions including <em className="font-serif italic font-medium">Rolling Thunder</em>, <em className="font-serif italic font-medium">Fires of a Revolution</em>, and <em className="font-serif italic font-medium">Courage</em></span>
+                  </li>
+                  <li className="flex items-start group">
+                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
+                    <span className="text-[20px] text-[#121622] font-light">A concert experience that belongs in a hall and on a dance floor at the same time</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -113,28 +155,31 @@ export default function Home() {
             <div className="w-[80vw] h-[80vw] border-[1px] border-white rounded-full group-hover:scale-110 transition-transform duration-1000 ease-in-out"></div>
           </div>
 
-          <div className="relative z-10 text-center flex flex-col items-center">
-            <span className="text-[#B9C1D1]/70 uppercase tracking-[0.2em] text-sm mb-4 block">Secure your seat</span>
-            <h2 className="text-[48px] sm:text-[64px] font-medium tracking-tight text-white mb-8">
-              Get Tickets
+          <div className="relative z-10 text-center flex flex-col items-center max-w-3xl px-4">
+            <span className="text-[#B9C1D1]/70 uppercase tracking-[0.2em] text-sm mb-4 block">Reserveer je stoel / Secure your seat</span>
+            <h2 className="text-[42px] sm:text-[58px] font-medium tracking-tight text-white mb-6">
+              Tickets kopen / Get Tickets
             </h2>
+            <p className="text-[#B9C1D1] text-base sm:text-lg leading-[1.7] mb-8">
+              Vanaf €15. Standaardtickets €29. VIP-tickets €59 met drankje na afloop en ontmoeting met de artiest. From €15. Standard tickets €29. VIP tickets €59 include post-concert refreshments and an artist meet-and-greet.
+            </p>
             <div className="flex flex-col items-center gap-4">
               <a
                 href="https://musicalbasics.com/cart/43946996957227:1"
                 className="bg-[#111111] text-[#F4F4F2] font-medium text-[16px] px-10 py-5 rounded-[999px] flex items-center gap-3 transition-transform hover:-translate-y-1 ring-1 ring-white/10 hover:ring-white/30 shadow-xl shadow-black/20"
               >
-                Get Tickets
+                Tickets kopen / Get Tickets
                 <Ticket className="w-5 h-5" />
               </a>
-              <p className="text-[#B9C1D1]/50 text-sm mt-4 font-light">A live evening performance in Zaventem, Belgium.</p>
+              <p className="text-[#B9C1D1]/50 text-sm mt-4 font-light">Zaventem, België / Belgium</p>
             </div>
           </div>
         </section>
       </main>
 
       <footer className="w-full border-t border-[#B9C1D1]/20 bg-[#F4F4F2] py-6 px-8 flex justify-between items-center text-xs text-[#3D404A]/60">
-        <p>&copy; 2026 Lionel Yu Live. All rights reserved.</p>
-        <p>Location: Zaventem, Belgium</p>
+        <p>© 2026 Lionel Yu Live. Alle rechten voorbehouden. / All rights reserved.</p>
+        <p>Locatie / Location: Zaventem, België / Belgium</p>
       </footer>
     </div>
   );
