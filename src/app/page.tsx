@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ArrowDownRight, Info, Music, Ticket } from "lucide-react";
+import { ArrowDownRight, Info, Music } from "lucide-react";
+import TicketSelector from "@/components/ticket-selector";
 
 export default function Home() {
   return (
@@ -150,6 +151,34 @@ export default function Home() {
 
         <div className="w-full h-px bg-[#B9C1D1]/30"></div>
 
+        <section className="max-w-[1800px] mx-auto px-4 sm:px-8 border-x border-[#B9C1D1]/20 py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-4">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3D404A] mb-3">Video / Video</p>
+              <h2 className="text-[34px] md:text-[48px] font-medium leading-[1] tracking-[-0.03em] text-[#121622] mb-6">
+                See Lionel Yu live in motion
+              </h2>
+              <p className="text-[18px] leading-[1.7] text-[#3D404A] max-w-xl">
+                Bekijk een preview van Lionel Yu&apos;s performance stijl, waarin klassieke piano, originele composities en moderne energie samenkomen. Watch the performance preview before choosing your tickets.
+              </p>
+            </div>
+            <div className="lg:col-span-8">
+              <div className="relative w-full overflow-hidden rounded-[24px] border border-[#B9C1D1]/20 shadow-2xl shadow-[#121622]/10 bg-black aspect-video">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/nQfrxcxZ45s"
+                  title="Lionel Yu performance video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div className="w-full h-px bg-[#B9C1D1]/30"></div>
+
         <section id="tickets" className="max-w-[1800px] mx-auto px-4 sm:px-8 border-x border-[#B9C1D1]/20 bg-[#121622] aspect-[21/9] min-h-[40vh] flex flex-col items-center justify-center relative overflow-hidden group py-24">
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none flex items-center justify-center">
             <div className="w-[80vw] h-[80vw] border-[1px] border-white rounded-full group-hover:scale-110 transition-transform duration-1000 ease-in-out"></div>
@@ -163,16 +192,7 @@ export default function Home() {
             <p className="text-[#B9C1D1] text-base sm:text-lg leading-[1.7] mb-8">
               Vanaf €15. Standaardtickets €29. VIP-tickets €59 met drankje na afloop en ontmoeting met de artiest. From €15. Standard tickets €29. VIP tickets €59 include post-concert refreshments and an artist meet-and-greet.
             </p>
-            <div className="flex flex-col items-center gap-4">
-              <a
-                href="https://musicalbasics.com/cart/43946996957227:1"
-                className="bg-[#111111] text-[#F4F4F2] font-medium text-[16px] px-10 py-5 rounded-[999px] flex items-center gap-3 transition-transform hover:-translate-y-1 ring-1 ring-white/10 hover:ring-white/30 shadow-xl shadow-black/20"
-              >
-                Tickets kopen / Get Tickets
-                <Ticket className="w-5 h-5" />
-              </a>
-              <p className="text-[#B9C1D1]/50 text-sm mt-4 font-light">Zaventem, België / Belgium</p>
-            </div>
+            <TicketSelector />
           </div>
         </section>
       </main>
