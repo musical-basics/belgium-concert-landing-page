@@ -77,6 +77,8 @@ export default function Home() {
                   alt="Lionel Yu Carnegie Hall Performance"
                   fill
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
                 />
               </div>
             </div>
