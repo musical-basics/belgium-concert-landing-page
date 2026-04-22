@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Ticket, Sparkles } from "lucide-react";
+import { Ticket, Sparkles, Minus, Plus } from "lucide-react";
 import {
   STANDARD_VARIANT_ID,
   VIP_VARIANT_ID,
@@ -13,7 +13,8 @@ import {
 import { useLocale } from "@/lib/i18n/context";
 import { trackBeginCheckout } from "@/components/analytics";
 
-const quantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const MIN_QTY = 1;
+const MAX_QTY = 5;
 
 type TierId = "standard" | "vip";
 type TierConfig = { id: TierId; variantId: string };
@@ -90,29 +91,45 @@ export default function TicketSelector() {
               >
                 {t.tickets.quantity}
               </label>
-              <select
+              <div
                 id={`quantity-${cfg.id}`}
-                value={qty}
-                className="w-full rounded-[12px] border border-white/10 bg-[#0F1117] px-4 py-3 text-[#F4F4F2] text-sm outline-none focus:border-white/30 transition-colors appearance-none cursor-pointer"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23B9C1D1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "right 1rem center",
-                  backgroundSize: "1rem",
-                }}
-                onChange={(e) =>
-                  setQuantities((prev) => ({
-                    ...prev,
-                    [cfg.id]: parseInt(e.target.value),
-                  }))
-                }
+                className="flex items-center justify-between rounded-[12px] border border-white/10 bg-[#0F1117] px-2 py-1.5"
               >
-                {quantityOptions.map((q) => (
-                  <option key={q} value={q} className="bg-[#0F1117]">
-                    {q}
-                  </option>
-                ))}
-              </select>
+                <button
+                  type="button"
+                  aria-label="Decrease quantity"
+                  disabled={qty <= MIN_QTY}
+                  onClick={() =>
+                    setQuantities((prev) => ({
+                      ...prev,
+                      [cfg.id]: Math.max(MIN_QTY, prev[cfg.id] - 1),
+                    }))
+                  }
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-[#F4F4F2] transition-colors hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+                >
+                  <Minus className="w-4 h-4" />
+                </button>
+                <span
+                  aria-live="polite"
+                  className="flex-1 text-center text-[16px] font-medium text-[#F4F4F2] tabular-nums"
+                >
+                  {qty}
+                </span>
+                <button
+                  type="button"
+                  aria-label="Increase quantity"
+                  disabled={qty >= MAX_QTY}
+                  onClick={() =>
+                    setQuantities((prev) => ({
+                      ...prev,
+                      [cfg.id]: Math.min(MAX_QTY, prev[cfg.id] + 1),
+                    }))
+                  }
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-[#F4F4F2] transition-colors hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
+                >
+                  <Plus className="w-4 h-4" />
+                </button>
+              </div>
 
               <a
                 href={href}
