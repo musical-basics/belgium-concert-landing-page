@@ -39,7 +39,8 @@ export default function TicketSelector() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl">
+    <div className="flex flex-col items-center gap-5 w-full max-w-3xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       {tierConfigs.map((cfg) => {
         const qty = quantities[cfg.id];
         const tierCopy = cfg.id === "vip" ? t.tickets.vip : t.tickets.standard;
@@ -157,6 +158,10 @@ export default function TicketSelector() {
           </div>
         );
       })}
+      </div>
+      <p className="text-[11px] text-[#B9C1D1]/60 uppercase tracking-widest">
+        {t.tickets.maxPerOrder}
+      </p>
     </div>
   );
 }

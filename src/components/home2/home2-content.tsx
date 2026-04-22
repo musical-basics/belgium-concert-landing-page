@@ -29,7 +29,7 @@ const VENUE_URL =
   "https://www.ccdefactorij.be/nl/programma/lionel-yu-klassieke-piano-en-edm/7132/";
 const YOUTUBE_VIDEO_ID = "nQfrxcxZ45s";
 const YOUTUBE_CHANNEL = "https://www.youtube.com/@MusicalBasics";
-const CONTACT_EMAIL = "lionel@musicalbasics.com";
+const CONTACT_EMAIL = "support@musicalbasics.com";
 
 export default function Home2Content() {
   const { t } = useLocale();

@@ -59,7 +59,7 @@ const en = {
   },
   questions: {
     prompt: "Questions?",
-    email: "lionel@musicalbasics.com",
+    email: "support@musicalbasics.com",
   },
   tickets: {
     kicker: "Secure your seat",
@@ -83,6 +83,7 @@ const en = {
       cta: "Buy VIP",
     },
     quantity: "Quantity",
+    maxPerOrder: "Max 5 per order",
   },
   email: {
     kicker: "Not ready to book?",
@@ -274,7 +275,7 @@ const nl: Dict = {
   // TODO: NL native review (Luc) — questions
   questions: {
     prompt: "Vragen?",
-    email: "lionel@musicalbasics.com",
+    email: "support@musicalbasics.com",
   },
   // TODO: NL native review (Luc) — tickets
   tickets: {
@@ -299,6 +300,7 @@ const nl: Dict = {
       cta: "VIP kopen",
     },
     quantity: "Aantal",
+    maxPerOrder: "Max 5 per bestelling",
   },
   // TODO: NL native review (Luc) — email capture
   email: {
