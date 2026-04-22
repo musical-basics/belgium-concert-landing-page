@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { LocaleProvider } from "@/lib/i18n/context";
 import { DEFAULT_LOCALE, type Locale } from "@/lib/i18n/dict";
-import Home2Content from "@/components/home2/home2-content";
-import "./home2.css";
+import HomeContent from "@/components/home-content";
 
 export const metadata: Metadata = {
-  title: "Lionel Yu | Classical Piano & EDM — One Night in Belgium",
+  title: "Lionel Yu Live · Zaventem · 11 juni 2026 (editorial)",
   description:
-    "June 11, 2026 · Theaterzaal Maupertuis, Zaventem. Classical piano, rebuilt with the energy of EDM.",
-  robots: { index: false, follow: false }, // A/B alt route — keep out of search until chosen
+    "Alternate editorial landing for Lionel Yu Live — June 11, 2026 in Zaventem.",
+  robots: { index: false, follow: false }, // A/B alt route — keep out of search
 };
 
 export default async function Home2Page() {
@@ -19,7 +18,7 @@ export default async function Home2Page() {
 
   return (
     <LocaleProvider initial={initial}>
-      <Home2Content />
+      <HomeContent />
     </LocaleProvider>
   );
 }
