@@ -1,6 +1,14 @@
 import Image from "next/image";
-import { ArrowDownRight, Info, Music } from "lucide-react";
+import { ArrowDownRight, Info, Music, Ticket } from "lucide-react";
 import TicketSelector from "@/components/ticket-selector";
+
+function YouTubeGlyph({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden className={className} fill="currentColor">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
 
 export default function Home() {
   return (
@@ -30,6 +38,10 @@ export default function Home() {
 
               <div className="mb-12 space-y-6">
                 <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#121622] text-white px-3 py-1.5 mb-4">
+                    <YouTubeGlyph className="w-3.5 h-3.5 text-[#FF0000]" />
+                    <span className="text-[11px] font-semibold tracking-wide">1,2M op YouTube</span>
+                  </div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3D404A] mb-3">Nederlands</p>
                   <h1 className="text-[40px] md:text-[64px] font-medium leading-[0.95] tracking-[-0.03em] text-[#121622] mb-4">
                     Lionel Yu, klassiek piano en EDM, 11 juni 2026
@@ -40,12 +52,29 @@ export default function Home() {
                 </div>
 
                 <div className="border-t border-[#B9C1D1]/30 pt-6">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#121622] text-white px-3 py-1.5 mb-4">
+                    <YouTubeGlyph className="w-3.5 h-3.5 text-[#FF0000]" />
+                    <span className="text-[11px] font-semibold tracking-wide">1.2M on YouTube</span>
+                  </div>
                   <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3D404A] mb-3">English</p>
                   <h2 className="text-[34px] md:text-[52px] font-medium leading-[1] tracking-[-0.03em] text-[#121622] mb-4">
                     Lionel Yu, Classical Piano and EDM, June 11, 2026
                   </h2>
                   <p className="text-[18px] leading-[1.6] text-[#3D404A] max-w-2xl">
-                    Where classical masterworks meet electronic music. One extraordinary night, live in Zaventem on June 11.
+                    Classical piano, rebuilt with the energy of EDM. One night only, June 11 in Zaventem.
+                  </p>
+                </div>
+
+                <div className="pt-4 flex flex-col items-start gap-2">
+                  <a
+                    href="#tickets"
+                    className="group inline-flex items-center gap-3 bg-[#121622] text-white font-semibold text-[15px] px-7 py-4 rounded-[999px] ring-1 ring-white/10 shadow-2xl shadow-black/20 hover:-translate-y-0.5 transition-all"
+                  >
+                    Tickets kopen / Get Tickets
+                    <Ticket className="w-4 h-4 transition-transform group-hover:rotate-12" />
+                  </a>
+                  <p className="text-[12px] text-[#3D404A]/80">
+                    Beperkt aantal plaatsen · Limited seats available
                   </p>
                 </div>
               </div>
@@ -71,15 +100,21 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5 relative py-8 lg:py-16 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-300">
+              {/* TODO: A/B test against a high-energy performance shot once asset is available. */}
               <div className="relative w-full h-[60vh] lg:h-[80vh] rounded-[24px] overflow-hidden shadow-2xl shadow-[#121622]/10 border border-[#B9C1D1]/20 group">
                 <Image
                   src="/images/hero.png"
-                  alt="Lionel Yu Carnegie Hall Performance"
+                  alt="Lionel Yu performing at Carnegie Hall, New York"
                   fill
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   priority
                 />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#121622]/80 via-[#121622]/30 to-transparent p-4 sm:p-5">
+                  <p className="text-[11px] sm:text-[12px] font-medium text-white/90 tracking-wide">
+                    Lionel performt in Carnegie Hall, New York / Lionel performing at Carnegie Hall, New York
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -96,56 +131,50 @@ export default function Home() {
                   Over het concert
                 </h2>
                 <p className="text-[18px] leading-[1.7] text-[#3D404A]">
-                  Pianist en componist Lionel Yu combineert klassieke pianomuziek met elektronische muziek en EDM tot iets wat je nog nooit hebt gezien. Met 1,2 miljoen volgers op YouTube en optredens in prestigieuze zalen wereldwijd brengt hij op 11 juni zijn bijzondere show naar Zaventem, in samenwerking met Lions Club Zaventem National Airport Erasmus.
+                  Pianist en componist Lionel Yu bouwt zijn arrangementen van nul af op — klassieke architectuur, EDM-dynamiek — niet zomaar klassiek met een beat eronder. Met 1,2 miljoen volgers op YouTube en optredens in zalen als Carnegie Hall brengt hij zijn show op 11 juni naar Zaventem.
                 </p>
               </div>
 
               <div className="border-t border-[#B9C1D1]/30 pt-8">
                 <h3 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-6">About the Concert</h3>
                 <p className="text-[18px] leading-[1.7] text-[#3D404A]">
-                  Pianist and composer Lionel Yu has built 1.2 million YouTube followers by making classical music feel electric. On June 11, he brings that high-energy blend of classical piano, EDM, and original composition to Zaventem, in partnership with Lions Club Zaventem National Airport Erasmus.
+                  Pianist and composer Lionel Yu builds his arrangements from scratch — classical architecture, EDM dynamics — not crossover with a beat dropped on top. With 1.2 million YouTube subscribers and performances at venues like Carnegie Hall, he brings the show to Zaventem on June 11.
+                </p>
+              </div>
+
+              <div className="border-t border-[#B9C1D1]/30 pt-8">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#3D404A] mb-3">Partnership</p>
+                <p className="text-[15px] leading-[1.6] text-[#3D404A]">
+                  In samenwerking met Lions Club Zaventem National Airport Erasmus en CC De Factorij.
+                </p>
+                <p className="text-[15px] leading-[1.6] text-[#3D404A]/70 mt-1">
+                  In partnership with Lions Club Zaventem National Airport Erasmus and CC De Factorij.
                 </p>
               </div>
             </div>
 
             <div className="lg:col-span-7 lg:pl-4 space-y-8">
               <div>
-                <h2 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-8 flex items-center gap-3">
+                <h2 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-6 flex items-center gap-3">
                   <Music className="w-6 h-6 text-[#3D404A]" />
-                  Programmahoogtepunten
+                  Programma
                 </h2>
-                <ul className="space-y-6">
-                  <li className="flex items-start group">
-                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                    <span className="text-[20px] text-[#121622] font-light">Herwerkte klassiekers van Chopin, Rachmaninov, Beethoven, Liszt en Vivaldi</span>
-                  </li>
-                  <li className="flex items-start group">
-                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                    <span className="text-[20px] text-[#121622] font-light">Originele composities zoals <em className="font-serif italic font-medium">Rolling Thunder</em>, <em className="font-serif italic font-medium">Fires of a Revolution</em> en <em className="font-serif italic font-medium">Courage</em></span>
-                  </li>
-                  <li className="flex items-start group">
-                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                    <span className="text-[20px] text-[#121622] font-light">Een unieke kruisbestuiving van concertzaal en dansvloer</span>
-                  </li>
-                </ul>
+                <p className="text-[20px] leading-[1.6] text-[#121622] font-light">
+                  Een avond die opent met <em className="font-serif italic font-medium">Chopin</em> en <em className="font-serif italic font-medium">Rachmaninov</em>, doorbouwt met herwerkte stukken van <em className="font-serif italic font-medium">Beethoven</em> en <em className="font-serif italic font-medium">Liszt</em> — waaronder selecties uit de <em className="font-serif italic font-medium">Nightmare</em>-arrangementreeks (Moonlight, Für Elise) — en zijn climax vindt in originele composities zoals <em className="font-serif italic font-medium">Rolling Thunder</em> en <em className="font-serif italic font-medium">Fires of a Revolution</em>.
+                </p>
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#B9C1D1]/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[#3D404A]">
+                  ~90 min incl. pauze
+                </div>
               </div>
 
               <div className="border-t border-[#B9C1D1]/30 pt-8">
-                <h3 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-8">Program Highlights</h3>
-                <ul className="space-y-6">
-                  <li className="flex items-start group">
-                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                    <span className="text-[20px] text-[#121622] font-light">Reimagined classics by Chopin, Rachmaninoff, Beethoven, Liszt, and Vivaldi</span>
-                  </li>
-                  <li className="flex items-start group">
-                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                    <span className="text-[20px] text-[#121622] font-light">Original compositions including <em className="font-serif italic font-medium">Rolling Thunder</em>, <em className="font-serif italic font-medium">Fires of a Revolution</em>, and <em className="font-serif italic font-medium">Courage</em></span>
-                  </li>
-                  <li className="flex items-start group">
-                    <span className="text-[#121622] mr-4 mt-1 opacity-50 group-hover:opacity-100 transition-opacity">—</span>
-                    <span className="text-[20px] text-[#121622] font-light">A concert experience that belongs in a hall and on a dance floor at the same time</span>
-                  </li>
-                </ul>
+                <h3 className="text-[23.2px] leading-[1.2] font-medium tracking-tight text-[#121622] mb-6">Program</h3>
+                <p className="text-[20px] leading-[1.6] text-[#121622] font-light">
+                  An evening that opens with <em className="font-serif italic font-medium">Chopin</em> and <em className="font-serif italic font-medium">Rachmaninoff</em>, builds through reimagined <em className="font-serif italic font-medium">Beethoven</em> and <em className="font-serif italic font-medium">Liszt</em> — including selections from the <em className="font-serif italic font-medium">Nightmare</em> arrangement series (Moonlight, Für Elise) — and peaks in original compositions like <em className="font-serif italic font-medium">Rolling Thunder</em> and <em className="font-serif italic font-medium">Fires of a Revolution</em>.
+                </p>
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#B9C1D1]/60 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[#3D404A]">
+                  ~90 min incl. intermission
+                </div>
               </div>
             </div>
           </div>
@@ -186,13 +215,13 @@ export default function Home() {
             <div className="w-[80vw] h-[80vw] border-[1px] border-white rounded-full group-hover:scale-110 transition-transform duration-1000 ease-in-out"></div>
           </div>
 
-          <div className="relative z-10 text-center flex flex-col items-center max-w-3xl px-4">
-            <span className="text-[#B9C1D1]/70 uppercase tracking-[0.2em] text-sm mb-4 block">Reserveer je stoel / Secure your seat</span>
-            <h2 className="text-[42px] sm:text-[58px] font-medium tracking-tight text-white mb-6">
+          <div className="relative z-10 flex flex-col items-center max-w-4xl px-4 w-full">
+            <span className="text-[#B9C1D1]/70 uppercase tracking-[0.2em] text-sm mb-4 block text-center">Reserveer je stoel / Secure your seat</span>
+            <h2 className="text-[42px] sm:text-[58px] font-medium tracking-tight text-white mb-4 text-center">
               Tickets kopen / Get Tickets
             </h2>
-            <p className="text-[#B9C1D1] text-base sm:text-lg leading-[1.7] mb-8">
-              Vanaf €15. Standaardtickets €29. VIP-tickets €59 met drankje na afloop en ontmoeting met de artiest. From €15. Standard tickets €29. VIP tickets €59 include post-concert refreshments and an artist meet-and-greet.
+            <p className="text-[#B9C1D1] text-base sm:text-lg leading-[1.7] mb-10 text-center">
+              Vanaf €29 · VIP €59
             </p>
             <TicketSelector />
           </div>

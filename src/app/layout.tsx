@@ -12,9 +12,36 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://lionelyu-belgium.vercel.app";
+const OG_IMAGE = "/images/og-concert.jpg";
+
 export const metadata: Metadata = {
-  title: "Lionel Yu Live in Belgium | June 11, 2026",
-  description: "Join Lionel Yu for an extraordinary night of classical piano and EDM live in Zaventem, Belgium on June 11, 2026.",
+  metadataBase: new URL(SITE_URL),
+  title: "Lionel Yu Live · Zaventem · 11 juni 2026 | Belgium Concert",
+  description:
+    "Klassieke piano ontmoet EDM. Lionel Yu (1,2M op YouTube) live in Zaventem op 11 juni 2026. Classical piano meets EDM — one night only, June 11 in Zaventem.",
+  openGraph: {
+    type: "website",
+    title: "Lionel Yu Live · Belgium · June 11, 2026",
+    description:
+      "Klassieke piano ontmoet EDM. Live in Zaventem op 11 juni 2026. Classical piano meets EDM — one night only.",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Lionel Yu Live · Belgium · June 11, 2026",
+      },
+    ],
+    locale: "nl_BE",
+    alternateLocale: ["en_US"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lionel Yu Live · Belgium · June 11, 2026",
+    description: "Classical piano meets EDM. One night only, June 11 in Zaventem.",
+    images: [OG_IMAGE],
+  },
 };
 
 export default function RootLayout({
