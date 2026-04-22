@@ -1,0 +1,72 @@
+/* Scoped styles for the /home2 cinematic alt landing page. */
+/* Only imported from src/app/home2/page.tsx, so it will not leak onto /. */
+
+/* Font aliases — the repo ships Geist Sans + Geist Mono via next/font and
+   sets --font-sans / --font-mono in <body>. For the editorial italic feel we
+   fall back to the OS serif stack. */
+.font-display {
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+  letter-spacing: -0.01em;
+}
+
+.font-serif {
+  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, serif;
+}
+
+/* Golden headline glow — tasteful, not gaudy. */
+.text-glow {
+  text-shadow: 0 0 30px rgba(216, 179, 93, 0.35), 0 0 60px rgba(216, 179, 93, 0.18);
+}
+
+/* Subtle film grain — fixed overlay, pointer-events-none. */
+.film-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Composer name marquee (infinite horizontal scroll). */
+.marquee-track {
+  animation: home2-marquee 38s linear infinite;
+}
+
+@keyframes home2-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Soft scroll-cue bounce. */
+.animate-bounce-soft {
+  animation: home2-bounce 2.2s ease-in-out infinite;
+}
+
+@keyframes home2-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* Respect reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .animate-bounce-soft {
+    animation: none !important;
+  }
+  .film-grain {
+    display: none;
+  }
+}

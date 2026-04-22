@@ -106,6 +106,103 @@ const en = {
   toggle: {
     switchTo: "Switch to",
   },
+  home2: {
+    hero: {
+      headlinePre: "One night.",
+      headlineEm: "Classical piano",
+      headlineMid: ", rebuilt with the",
+      headlinePost: "energy of EDM",
+      headlineEnd: ".",
+      subLine: "June 11, 2026 — Zaventem, Belgium",
+      primaryCta: "Get Tickets",
+      secondaryCta: "Watch Trailer",
+      scroll: "Scroll",
+      countdown: {
+        days: "Days",
+        hours: "Hours",
+        mins: "Mins",
+        secs: "Secs",
+      },
+      meta: {
+        date: { label: "Date", value: "June 11, 2026" },
+        time: { label: "Time", value: "19:30 CEST" },
+        venue: { label: "Venue", value: "Theaterzaal Maupertuis" },
+        location: { label: "Location", value: "Zaventem, BE" },
+      },
+    },
+    trophy: {
+      subs: {
+        value: "1.2M+",
+        title: "Subscribers",
+        body: "A global audience captivated by a new era of piano arrangement across YouTube.",
+      },
+      carnegie: {
+        value: "Carnegie Hall",
+        title: "Debut Completed",
+        body: "Provenance in the most hallowed halls of classical music performance.",
+      },
+      views: {
+        value: "50M+",
+        title: 'Views on the "Nightmare" series',
+        body: "The viral series that redefined classical boundaries, bringing symphonic metal energy to solo piano.",
+      },
+    },
+    program: {
+      kicker: "The Program",
+      subtitle: "A journey across three cinematic acts.",
+      act1: {
+        eyebrow: "Act One",
+        title: "Foundations",
+        mood: "The classical roots. Deeply emotional, pure acoustic mastery.",
+        pieces: ["Works of Chopin", "Themes of Rachmaninoff"],
+      },
+      act2: {
+        eyebrow: "Act Two",
+        title: "Reimagined",
+        mood: "Familiar melodies shattered and rebuilt. The crossover begins.",
+        pieces: ["Beethoven injected with EDM", "Liszt, accelerated", 'The "Nightmare" Series'],
+      },
+      act3: {
+        eyebrow: "Act Three",
+        title: "Originals",
+        mood: "The climactic finale — hyper-speed original compositions.",
+        pieces: ["Rolling Thunder", "Fires of a Revolution"],
+      },
+      runtime: "~90 min incl. intermission",
+    },
+    vip: {
+      pill: "Extremely Limited",
+      titlePre: "The VIP",
+      titleEm: "Experience",
+      subtitle: "Go beyond the performance. A premium allocation for true patrons.",
+      seat: {
+        title: "Reserved Premium Seating",
+        body: "The absolute best acoustics and sightlines in Theaterzaal Maupertuis.",
+      },
+      meet: {
+        title: "Private Meet & Greet",
+        body: "Exclusive post-show interaction and photo opportunity with Lionel.",
+      },
+      drinks: {
+        title: "Post-Concert Reception",
+        body: "Complimentary refreshments and decompression with fellow VIPs.",
+      },
+      cta: "Reserve VIP Access",
+    },
+    video: {
+      caption: "Experience the intensity of the Nightmare series live.",
+      fullCatalog: "Watch full catalog",
+    },
+    tickets: {
+      heading: "Secure your seat",
+      subtitle: "One night only in Belgium. Capacity is strictly limited.",
+    },
+    stickyCta: {
+      fromLabel: "Starting from",
+      fromPrice: "€29",
+      button: "Get Tickets",
+    },
+  },
 };
 
 export type Dict = typeof en;
@@ -227,6 +324,104 @@ const nl: Dict = {
   // TODO: NL native review (Luc) — toggle
   toggle: {
     switchTo: "Wissel naar",
+  },
+  // TODO: NL native review (Luc) — home2 (alt cinematic landing)
+  home2: {
+    hero: {
+      headlinePre: "Eén avond.",
+      headlineEm: "Klassieke piano",
+      headlineMid: ", heropgebouwd met de",
+      headlinePost: "energie van EDM",
+      headlineEnd: ".",
+      subLine: "11 juni 2026 — Zaventem, België",
+      primaryCta: "Tickets kopen",
+      secondaryCta: "Preview bekijken",
+      scroll: "Scroll",
+      countdown: {
+        days: "Dagen",
+        hours: "Uren",
+        mins: "Min",
+        secs: "Sec",
+      },
+      meta: {
+        date: { label: "Datum", value: "11 juni 2026" },
+        time: { label: "Aanvang", value: "19:30 CEST" },
+        venue: { label: "Zaal", value: "Theaterzaal Maupertuis" },
+        location: { label: "Locatie", value: "Zaventem, BE" },
+      },
+    },
+    trophy: {
+      subs: {
+        value: "1,2M+",
+        title: "Abonnees",
+        body: "Een wereldwijd publiek voor een nieuw tijdperk van piano-arrangementen op YouTube.",
+      },
+      carnegie: {
+        value: "Carnegie Hall",
+        title: "Debuut gespeeld",
+        body: "Gevalideerd in de meest prestigieuze zalen van de klassieke muziek.",
+      },
+      views: {
+        value: "50M+ views",
+        title: 'Op de "Nightmare"-reeks',
+        body: "De virale reeks die de grenzen van klassiek hertekent — symfonische metalenergie op solopiano.",
+      },
+    },
+    program: {
+      kicker: "Het Programma",
+      subtitle: "Een reis in drie cinematische bedrijven.",
+      act1: {
+        eyebrow: "Bedrijf Één",
+        title: "Fundamenten",
+        mood: "De klassieke wortels. Diep emotioneel, pure akoestische beheersing.",
+        pieces: ["Werk van Chopin", "Thema's van Rachmaninov"],
+      },
+      act2: {
+        eyebrow: "Bedrijf Twee",
+        title: "Herwerkt",
+        mood: "Vertrouwde melodieën verbrijzeld en heropgebouwd. De crossover begint.",
+        pieces: ["Beethoven met EDM-energie", "Liszt, versneld", 'De "Nightmare"-reeks'],
+      },
+      act3: {
+        eyebrow: "Bedrijf Drie",
+        title: "Originelen",
+        mood: "De climax — originele composities op volle snelheid.",
+        pieces: ["Rolling Thunder", "Fires of a Revolution"],
+      },
+      runtime: "~90 min incl. pauze",
+    },
+    vip: {
+      pill: "Zeer beperkt",
+      titlePre: "De VIP",
+      titleEm: "Ervaring",
+      subtitle: "Meer dan een voorstelling. Een premium allocatie voor echte liefhebbers.",
+      seat: {
+        title: "Premium voorbehouden zitplaats",
+        body: "De beste akoestiek en zichtlijnen in de Theaterzaal Maupertuis.",
+      },
+      meet: {
+        title: "Privé Meet & Greet",
+        body: "Exclusief contact en fotomoment met Lionel na de show.",
+      },
+      drinks: {
+        title: "Receptie na het concert",
+        body: "Gratis versnaperingen en napraten met mede-VIP's.",
+      },
+      cta: "VIP reserveren",
+    },
+    video: {
+      caption: 'Beleef de intensiteit van de "Nightmare"-reeks live.',
+      fullCatalog: "Bekijk de volledige catalogus",
+    },
+    tickets: {
+      heading: "Reserveer je stoel",
+      subtitle: "Eén avond in België. Beperkt aantal plaatsen.",
+    },
+    stickyCta: {
+      fromLabel: "Vanaf",
+      fromPrice: "€29",
+      button: "Tickets",
+    },
   },
 };
 
