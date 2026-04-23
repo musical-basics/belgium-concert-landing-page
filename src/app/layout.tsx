@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { cookies } from "next/headers";
 import Analytics from "@/components/analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -62,6 +63,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
+        <VercelAnalytics />
       </body>
     </html>
   );
