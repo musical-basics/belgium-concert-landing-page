@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { track } from "@vercel/analytics";
 import type { UTMParams } from "@/lib/checkout";
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
@@ -76,6 +77,13 @@ export function trackBeginCheckout({
   if (typeof window === "undefined") return;
   const unitPrice = tier === "vip" ? 59 : 29;
   const value = unitPrice * quantity;
+
+  track("begin_checkout", {
+    tier,
+    quantity,
+    value,
+    variantId,
+  });
 
   window.gtag?.("event", "begin_checkout", {
     currency: "EUR",

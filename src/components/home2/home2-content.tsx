@@ -1,5 +1,6 @@
 "use client";
 
+import { track } from "@vercel/analytics";
 import Image from "next/image";
 import {
   ArrowUpRight,
@@ -56,6 +57,7 @@ export default function Home2Content() {
           </div>
           <a
             href="#tickets"
+            onClick={() => track("cta_click", { location: "nav" })}
             className="group inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-4 py-2 text-[12px] font-semibold tracking-wider uppercase text-[#0a0d14] transition-transform hover:-translate-y-0.5"
           >
             {t.nav.tickets}
@@ -125,6 +127,7 @@ export default function Home2Content() {
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-md sm:max-w-none animate-in fade-in duration-1000 delay-500">
               <a
                 href="#tickets"
+                onClick={() => track("cta_click", { location: "hero" })}
                 className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--accent)] px-9 py-4 text-[13px] font-semibold uppercase tracking-[0.2em] text-[#0a0d14] overflow-hidden transition-all hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(216,179,93,0.45)]"
               >
                 <span className="relative z-10 inline-flex items-center gap-2">
@@ -134,6 +137,7 @@ export default function Home2Content() {
               </a>
               <a
                 href="#video-preview"
+                onClick={() => track("cta_click", { location: "video_preview" })}
                 className="group flex items-center gap-3 text-white hover:text-[color:var(--accent)] transition-colors text-[12px] uppercase tracking-[0.25em] font-sans"
               >
                 <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 group-hover:border-[color:var(--accent)] transition-colors">
@@ -395,6 +399,7 @@ export default function Home2Content() {
 
               <a
                 href="#tickets"
+                onClick={() => track("cta_click", { location: "vip" })}
                 className="group inline-flex items-center gap-2 rounded-full border border-[color:var(--accent)] bg-transparent px-8 py-4 text-[12px] font-semibold uppercase tracking-[0.25em] text-[color:var(--accent)] transition-colors hover:bg-[color:var(--accent)] hover:text-[#0a0d14]"
               >
                 {t.home2.vip.cta}

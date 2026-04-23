@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { Mail, Check, AlertCircle } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { useLocale } from "@/lib/i18n/context";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 export default function EmailCapture() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [consent, setConsent] = useState(false);
@@ -30,6 +31,7 @@ export default function EmailCapture() {
         }),
       });
       setStatus(res.ok ? "success" : "error");
+      if (res.ok) track("email_signup", { locale });
     } catch {
       setStatus("error");
     }

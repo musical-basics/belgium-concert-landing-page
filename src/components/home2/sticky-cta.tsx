@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { useLocale } from "@/lib/i18n/context";
 
 export default function StickyCta() {
@@ -37,6 +38,7 @@ export default function StickyCta() {
         </div>
         <a
           href="#tickets"
+          onClick={() => track("cta_click", { location: "sticky" })}
           className="group inline-flex items-center gap-2 rounded-full bg-[color:var(--accent)] px-5 py-3 text-[13px] font-semibold tracking-wide text-[#0a0d14] active:scale-95 transition-transform"
         >
           {t.home2.stickyCta.button}

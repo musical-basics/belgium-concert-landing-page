@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Play } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 export default function YouTubeFacade({
   videoId,
@@ -31,7 +32,10 @@ export default function YouTubeFacade({
   return (
     <button
       type="button"
-      onClick={() => setLoaded(true)}
+      onClick={() => {
+        track("video_play", { videoId });
+        setLoaded(true);
+      }}
       aria-label={playLabel}
       className="group absolute inset-0 h-full w-full overflow-hidden bg-black"
     >
