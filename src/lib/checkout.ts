@@ -41,5 +41,5 @@ export function buildCheckoutUrl({
     utm_campaign: utm.campaign,
   });
   if (utm.content) qs.set("utm_content", utm.content);
-  return `https://musicalbasics.com/cart/${variantId}:${quantity}?${qs.toString()}`;
+  return `https://eu.musicalbasics.com/cart/${variantId}:${quantity}?${qs.toString()}`;
 }
