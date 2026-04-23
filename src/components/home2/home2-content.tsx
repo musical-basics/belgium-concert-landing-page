@@ -70,8 +70,8 @@ export default function Home2Content() {
           {/* Background image + gradient wash */}
           <div className="absolute inset-0 -z-10">
             <Image
-              src="/images/lionel-barbara-performance.jpg"
-              alt="Lionel Yu performing with violinist Barbara"
+              src="/images/og-concert.jpg"
+              alt="Lionel Yu performing live"
               fill
               priority
               className="object-cover object-center opacity-55"
