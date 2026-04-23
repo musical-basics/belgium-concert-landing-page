@@ -18,8 +18,8 @@ Our final state:
 
 ```
 EU market (eu.musicalbasics.com)
-└── ACTIVE catalog
-    └── PriceList "Belgium EUR Fixed Prices" (EUR)
+└── ACTIVE catalog "EU EUR Catalog"
+    └── PriceList "EU EUR Fixed Prices" (EUR, 2 fixed prices)
         ├── Standard variant 43946996957227 → €29.00
         └── VIP variant 43962297974827 → €59.00
 ```
@@ -174,7 +174,7 @@ Variables:
 ```json
 {
   "input": {
-    "name": "Belgium EUR Fixed Prices",
+    "name": "EU EUR Fixed Prices",
     "currency": "EUR",
     "parent": { "adjustment": { "type": "PERCENTAGE_DECREASE", "value": 0.0 } }
   }
@@ -194,12 +194,12 @@ mutation($input: CatalogCreateInput!) {
 }
 ```
 
-Variables (using EU market here — Belgium market initially, then moved):
+Variables (bound to EU market):
 
 ```json
 {
   "input": {
-    "title": "Belgium EUR Catalog",
+    "title": "EU EUR Catalog",
     "status": "ACTIVE",
     "context": { "marketIds": ["gid://shopify/Market/10924720171"] },
     "priceListId": "gid://shopify/PriceList/<from step 1>"
@@ -342,16 +342,19 @@ Belgian/EU customers are back on FX-converted USD. No other market is affected.
 
 ---
 
-## Current IDs (as of 2026-04-22)
+## Current IDs (as of 2026-04-23, after cleanup)
 
 ```
-EU market:          gid://shopify/Market/10924720171
-Belgium market:     gid://shopify/Market/111020867627   (empty, reserved)
-Our price list:     gid://shopify/PriceList/18476171307
-Our catalog:        gid://shopify/MarketCatalog/159716507691  (ACTIVE, on EU)
-Old EU catalog:     gid://shopify/MarketCatalog/11000840235   (ARCHIVED)
-Standard variant:   gid://shopify/ProductVariant/43946996957227 → €29.00
-VIP variant:        gid://shopify/ProductVariant/43962297974827 → €59.00
+EU market:    gid://shopify/Market/10924720171
+Catalog:      gid://shopify/MarketCatalog/159716507691   "EU EUR Catalog" (ACTIVE, on EU)
+Price list:   gid://shopify/PriceList/18476171307        "EU EUR Fixed Prices" (EUR, 2 fixed)
+Standard:     gid://shopify/ProductVariant/43946996957227 → €29.00
+VIP:          gid://shopify/ProductVariant/43962297974827 → €59.00
 ```
+
+Deleted on 2026-04-23 (kept here for audit trail):
+- `gid://shopify/Market/111020867627` — Belgium market (empty, unreachable because no webPresence; removed to avoid confusion)
+- `gid://shopify/MarketCatalog/11000840235` — old default EU catalog (USD, ARCHIVED)
+- `gid://shopify/PriceList/18473549867` — old default EU price list (USD, 0 fixed — cascade-deleted with its catalog)
 
 IDs don't change unless you delete and recreate.
