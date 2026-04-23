@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://lionelyu-belgium.vercel.app";
+const SITE_URL = "https://belgium.musicalbasics.com";
 const OG_IMAGE = "/images/og-concert.jpg";
 
 export const metadata: Metadata = {
