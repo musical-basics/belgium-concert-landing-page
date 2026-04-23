@@ -11,7 +11,7 @@ import { renderEmphasis } from "@/lib/i18n/utils";
 
 const VENUE_URL =
   "https://www.ccdefactorij.be/nl/programma/lionel-yu-klassieke-piano-en-edm/7132/";
-const YOUTUBE_VIDEO_ID = "nQfrxcxZ45s";
+const YOUTUBE_VIDEO_ID = "qGqK_73JOqk";
 
 function YouTubeGlyph({ className = "w-3.5 h-3.5" }: { className?: string }) {
   return (
