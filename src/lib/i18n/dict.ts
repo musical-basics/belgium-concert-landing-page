@@ -140,7 +140,7 @@ const en = {
       carnegie: {
         value: "Carnegie Hall",
         title: "Debut Completed",
-        body: "Provenance in the most hallowed halls of classical music performance.",
+        body: "Proven on one of the most hallowed stages in classical music.",
       },
       views: {
         value: "50M+",
