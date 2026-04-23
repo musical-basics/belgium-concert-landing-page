@@ -70,8 +70,8 @@ export default function Home2Content() {
           {/* Background image + gradient wash */}
           <div className="absolute inset-0 -z-10">
             <Image
-              src="/images/og-concert.jpg"
-              alt="Lionel Yu performing live"
+              src="/images/lionel-barbara-performance.jpg"
+              alt="Lionel Yu performing with violinist Barbara"
               fill
               priority
               className="object-cover object-center opacity-55"
@@ -293,6 +293,52 @@ export default function Home2Content() {
                 {t.home2.video.fullCatalog}
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ============== ON STAGE (photo strip) ============== */}
+        <section className="relative py-24 sm:py-28 bg-[color:var(--bg)]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8">
+            <div className="text-center mb-12 sm:mb-16">
+              <p className="font-display text-[11px] tracking-[0.35em] uppercase text-[color:var(--accent)] mb-3">
+                {t.home2.stage.eyebrow}
+              </p>
+              <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-tight text-balance">
+                {t.home2.stage.heading}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <figure>
+                <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-white/10 bg-black shadow-[0_30px_100px_-30px_rgba(0,0,0,0.75)]">
+                  <Image
+                    src="/images/lionel-barbican-barbara.png"
+                    alt="Lionel Yu performing with violinist Barbara in a grand concert hall"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <figcaption className="mt-4 font-serif italic text-[color:var(--muted)] text-base sm:text-lg">
+                  {t.home2.stage.captionBarbican}
+                </figcaption>
+              </figure>
+
+              <figure>
+                <div className="relative aspect-video w-full overflow-hidden rounded-sm border border-white/10 bg-black shadow-[0_30px_100px_-30px_rgba(0,0,0,0.75)]">
+                  <Image
+                    src="/images/lionel-speaking-onstage.png"
+                    alt="Lionel Yu addressing the audience from the stage"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                  />
+                </div>
+                <figcaption className="mt-4 font-serif italic text-[color:var(--muted)] text-base sm:text-lg">
+                  {t.home2.stage.captionSpeaking}
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>

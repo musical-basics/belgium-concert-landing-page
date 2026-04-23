@@ -210,6 +210,12 @@ const en = {
       caption: "Experience the intensity of the Nightmare series live.",
       fullCatalog: "Watch full catalog",
     },
+    stage: {
+      eyebrow: "On Stage",
+      heading: "Before the night in Zaventem",
+      captionBarbican: "Live with violinist Barbara",
+      captionSpeaking: "Between the pieces",
+    },
     tickets: {
       heading: "Secure your seat",
       subtitle: "One night only in Belgium. Capacity is strictly limited.",
@@ -446,6 +452,13 @@ const nl: Dict = {
     video: {
       caption: 'Beleef de intensiteit van de "Nightmare"-reeks live.',
       fullCatalog: "Bekijk de volledige catalogus",
+    },
+    // TODO: NL native review (Luc) — home2 stage
+    stage: {
+      eyebrow: "Op het podium",
+      heading: "Voor de avond in Zaventem",
+      captionBarbican: "Live met violiste Barbara",
+      captionSpeaking: "Tussen de stukken door",
     },
     tickets: {
       heading: "Reserveer je stoel",
