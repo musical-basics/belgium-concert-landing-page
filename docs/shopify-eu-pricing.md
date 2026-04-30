@@ -154,6 +154,37 @@ Right after `priceListFixedPricesAdd`, an immediate re-read may not show the new
 
 You POST `"29.00"`, the response echoes `"29.0"`. Don't do strict string comparison — parse to number or compare semantically.
 
+### 8. API-created products are NOT auto-published to sales channels
+
+This burned us on the livestream product. After `productCreate` returns `status: ACTIVE` and the variant has a price, the product is **still invisible** on every storefront (`musicalbasics.com`, `eu.musicalbasics.com`, etc.) until you explicitly publish it to the **Online Store** publication.
+
+Symptom: cart URL `eu.musicalbasics.com/cart/<variantId>:1` returns Shopify's "Link no longer exists." page even though the variant exists and is `ACTIVE`.
+
+Fix: after `productCreate`, run `publishablePublish`:
+
+```graphql
+mutation($id: ID!, $input: [PublicationInput!]!) {
+  publishablePublish(id: $id, input: $input) {
+    publishable { ... on Product { id title } }
+    userErrors { field message }
+  }
+}
+```
+
+with `input: [{ publicationId: <Online Store publication GID> }]`. Find the publication ID via `{ publications(first: 30) { nodes { id name } } }` and pick the one named `"Online Store"`.
+
+Requires scopes: `read_publications` + `write_publications` (these are NOT in the original 6 scopes — adding them needs a new app version on dev.shopify.com plus a clean app reinstall on the store, since managed-installation tokens only carry the scopes consented at install time).
+
+Reusable script: [scripts/shopify/10-publish-product.mjs](../scripts/shopify/10-publish-product.mjs). Run with `node --env-file=.env.local scripts/shopify/10-publish-product.mjs gid://shopify/Product/<id>`.
+
+### 9. Adding scopes to a managed-install app requires a clean reinstall
+
+Just bumping the app version with new scopes on dev.shopify.com is not enough. The store's existing install was authorized for the OLD scope set, and `client_credentials` tokens issued against it will still only carry the old scopes. Symptom: token response only shows the original scopes, and queries that need new scopes return `Access denied`.
+
+Fix: **uninstall the app from the store admin first**, then reinstall from dev.shopify.com. The "Install app" button alone won't trigger re-consent if the app is still installed — Shopify silently uses the existing authorization. After uninstall + reinstall, the next `client_credentials` grant returns a token with the full new scope set.
+
+Also: if "Use legacy install flow" is checked, the install requires an actual OAuth code-exchange handler at the redirect URL. With `https://example.com/auth/callback` as the redirect, the install rolls back silently because example.com can't complete the handshake. **Uncheck "Use legacy install flow"** for managed-install custom apps with no real backend, and reinstall succeeds.
+
 ---
 
 ## Mutations in order (copy-paste reference)
