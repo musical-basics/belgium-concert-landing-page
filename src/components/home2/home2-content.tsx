@@ -399,6 +399,42 @@ export default function Home2Content() {
           </div>
         </section>
 
+        {/* ============== ARTIST BIO ============== */}
+        <section className="relative py-24 sm:py-28 bg-[#0d111c] border-y border-white/[0.05]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+
+              {/* Left: eyebrow + name + venue strip */}
+              <div className="lg:col-span-4 lg:sticky lg:top-28">
+                <p className="font-display text-[11px] tracking-[0.35em] uppercase text-[color:var(--accent)] mb-4">
+                  {t.artist.eyebrow}
+                </p>
+                <h2 className="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white mb-8 leading-none">
+                  {t.artist.heading}
+                </h2>
+                {/* Venue credits */}
+                <div className="border-t border-white/[0.08] pt-6">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted)]/60 mb-3">
+                    Performed at
+                  </p>
+                  <p className="text-[12px] text-[color:var(--muted)]/80 leading-relaxed">
+                    {t.artist.venues}
+                  </p>
+                </div>
+              </div>
+
+              {/* Right: bio paragraphs */}
+              <div className="lg:col-span-8 space-y-5 text-[15px] sm:text-base leading-[1.75] text-[color:var(--muted)]">
+                <p>{t.artist.p1}</p>
+                <p>{t.artist.p2}</p>
+                <p>{t.artist.p3}</p>
+                <p className="font-serif italic text-white/90">{t.artist.p4}</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
         {/* ============== VIP EXPERIENCE MOMENT ============== */}
         <section id="vip-experience" className="relative overflow-hidden py-24 sm:py-28 bg-[color:var(--bg)]">
           <div

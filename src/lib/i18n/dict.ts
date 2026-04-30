@@ -32,6 +32,15 @@ const en = {
     partnership:
       "In partnership with Lions Club Zaventem National Airport Erasmus and CC De Factorij.",
   },
+  artist: {
+    eyebrow: "About the Artist",
+    heading: "Lionel Yu",
+    p1: "Lionel Yu is a Chinese-American concert pianist, composer, educator, and creator known worldwide for fusing classical piano with cinematic and EDM-inspired energy. Under the name MusicalBasics, he has built a global audience of more than 1.2 million YouTube subscribers and over 200 million views with bold reimaginings of Beethoven, Chopin, Liszt, Rachmaninov, Vivaldi, and his own original works.",
+    p2: "Born in Hangzhou, China and raised near Washington, D.C., Lionel trained in the classical tradition before developing a style that brings the drama, virtuosity, and emotional depth of classical music into the 21st century. He has performed at Carnegie Hall, the Kennedy Center, Barbican Hall, the Munich Residenz, and Harbourfront Centre, and has been featured by Classic FM, WNYC/NPR, and London Live.",
+    p3: "A former Wall Street professional with degrees in Finance and Marketing from NYU, Lionel left his earlier career at 29 to devote himself fully to music. Today he is also the founder of Musical Basics and DreamPlay Pianos, and teaches serious students through his online piano studio.",
+    p4: "His Belgium concert is a powerful meeting of tradition and innovation: classical masterpieces, original compositions, and modern electronic energy transformed into a live piano experience that feels both timeless and unmistakably new.",
+    venues: "Carnegie Hall · Kennedy Center · Barbican Hall · Munich Residenz · Harbourfront Centre",
+  },
   social: {
     heading: "Proof",
     tiles: {
@@ -268,6 +277,16 @@ const nl: Dict = {
     partnershipLabel: "Partnerschap",
     partnership:
       "In samenwerking met Lions Club Zaventem National Airport Erasmus en CC De Factorij.",
+  },
+  // TODO: NL native review (Luc) — artist bio
+  artist: {
+    eyebrow: "Over de artiest",
+    heading: "Lionel Yu",
+    p1: "Lionel Yu is een Chinees-Amerikaanse concertpianist, componist, docent en creator, wereldwijd bekend voor zijn fusie van klassieke piano met cinematische en EDM-geïnspireerde energie. Onder de naam MusicalBasics bouwde hij een wereldwijd publiek op van meer dan 1,2 miljoen YouTube-abonnees en meer dan 200 miljoen views, met gewaagde herinterpretatties van Beethoven, Chopin, Liszt, Rachmaninov, Vivaldi en eigen originele werken.",
+    p2: "Geboren in Hangzhou, China en opgegroeid in de omgeving van Washington D.C., volgde Lionel een klassieke opleiding voor hij een stijl ontwikkelde die de dramatiek, virtuositeit en emotionele diepgang van klassieke muziek in de 21e eeuw brengt. Hij trad op in Carnegie Hall, the Kennedy Center, Barbican Hall, de Münchner Residenz en Harbourfront Centre, en werd uitgelicht door Classic FM, WNYC/NPR en London Live.",
+    p3: "Een voormalige Wall Street-professional met diploma's in Finance en Marketing van NYU, verliet Lionel zijn eerdere carrière op zijn 29e om zich volledig aan muziek te wijden. Vandaag is hij ook de oprichter van Musical Basics en DreamPlay Pianos, en geeft hij les aan serieuze studenten via zijn online pianostudio.",
+    p4: "Zijn Belgisch concert is een krachtige ontmoeting van traditie en innovatie: klassieke meesterwerken, originele composities en moderne elektronische energie, omgevormd tot een live piano-ervaring die tijdloos én onmiskenbaar eigentijds aanvoelt.",
+    venues: "Carnegie Hall · Kennedy Center · Barbican Hall · München Residenz · Harbourfront Centre",
   },
   // TODO: NL native review (Luc) — social
   social: {
