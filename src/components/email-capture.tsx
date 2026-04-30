@@ -31,7 +31,14 @@ export default function EmailCapture() {
         }),
       });
       setStatus(res.ok ? "success" : "error");
-      if (res.ok) track("email_signup", { locale });
+      if (res.ok) {
+        track("email_signup", { locale });
+        // CRO: Meta Pixel Lead event for retargeting audiences
+        if (typeof window !== "undefined") {
+          window.fbq?.("track", "Lead", { content_name: "email_signup" });
+          window.ttq?.track("CompleteRegistration", { content_name: "email_signup" });
+        }
+      }
     } catch {
       setStatus("error");
     }

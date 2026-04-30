@@ -146,7 +146,7 @@ export default function TicketSelector() {
                   "group relative w-full font-semibold text-[15px] px-6 py-4 rounded-[999px] flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5",
                   isVip
                     ? "bg-white text-[#121622] ring-1 ring-white/40 shadow-2xl shadow-black/40"
-                    : "bg-[#111111] text-[#F4F4F2] ring-1 ring-white/10 hover:ring-white/30 shadow-2xl shadow-black/40",
+                    : "bg-[color:var(--accent)] text-[#0a0d14] ring-1 ring-[color:var(--accent)]/40 shadow-2xl shadow-black/40 hover:shadow-[0_0_30px_rgba(216,179,93,0.35)]",
                 ].join(" ")}
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -154,6 +154,13 @@ export default function TicketSelector() {
                   <Ticket className="w-4 h-4 transition-transform group-hover:rotate-12" />
                 </span>
               </a>
+              {/* Trust line */}
+              <p className="text-center text-[10px] text-[#B9C1D1]/50 uppercase tracking-widest flex items-center justify-center gap-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3 h-3">
+                  <path fillRule="evenodd" d="M8 1a3.5 3.5 0 0 0-3.5 3.5V7A1.5 1.5 0 0 0 3 8.5v5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5v-5A1.5 1.5 0 0 0 11.5 7V4.5A3.5 3.5 0 0 0 8 1Zm2 6V4.5a2 2 0 1 0-4 0V7h4Z" clipRule="evenodd" />
+                </svg>
+                {t.home2.tickets.trustLine}
+              </p>
             </div>
           </div>
         );
@@ -161,6 +168,9 @@ export default function TicketSelector() {
       </div>
       <p className="text-[11px] text-[#B9C1D1]/60 uppercase tracking-widest">
         {t.tickets.maxPerOrder}
+      </p>
+      <p className="text-[12px] text-[#B9C1D1]/50 mt-1">
+        {t.home2.tickets.refundPolicy}
       </p>
     </div>
   );

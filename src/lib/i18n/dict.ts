@@ -6,7 +6,7 @@ export const DEFAULT_LOCALE: Locale = "nl";
 const en = {
   nav: {
     eyebrow: "Zaventem '26",
-    tickets: "Tickets",
+    tickets: "Tickets · €29",
   },
   hero: {
     livePill: "Live in Belgium",
@@ -115,7 +115,7 @@ const en = {
       headlinePost: "energy of EDM",
       headlineEnd: ".",
       subLine: "June 11, 2026 — Zaventem, Belgium",
-      primaryCta: "Get Tickets",
+      primaryCta: "Get Tickets · From €29",
       secondaryCta: "Watch Trailer",
       scroll: "Scroll",
       countdown: {
@@ -219,6 +219,10 @@ const en = {
     tickets: {
       heading: "Secure your seat",
       subtitle: "One night only in Belgium. Capacity is strictly limited.",
+      urgency: "Selling fast — over half sold",
+      trustLine: "Secure checkout · Instant confirmation",
+      refundPolicy: "Free cancellation up to 7 days before the concert.",
+      socialProof: "In partnership with Lions Club Zaventem & CC De Factorij",
     },
     stickyCta: {
       fromLabel: "Starting from",
@@ -237,7 +241,7 @@ const nl: Dict = {
   // TODO: NL native review (Luc) — nav
   nav: {
     eyebrow: "Zaventem '26",
-    tickets: "Tickets",
+    tickets: "Tickets · €29",
   },
   // TODO: NL native review (Luc) — hero
   hero: {
@@ -358,7 +362,7 @@ const nl: Dict = {
       headlinePost: "energie van EDM",
       headlineEnd: ".",
       subLine: "11 juni 2026 — Zaventem, België",
-      primaryCta: "Tickets kopen",
+      primaryCta: "Tickets kopen · Vanaf €29",
       secondaryCta: "Preview bekijken",
       scroll: "Scroll",
       countdown: {
@@ -463,6 +467,10 @@ const nl: Dict = {
     tickets: {
       heading: "Reserveer je stoel",
       subtitle: "Eén avond in België. Beperkt aantal plaatsen.",
+      urgency: "Verkoopt snel — meer dan de helft verkocht",
+      trustLine: "Veilig betalen · Directe bevestiging",
+      refundPolicy: "Gratis annulering tot 7 dagen voor het concert.",
+      socialProof: "In samenwerking met Lions Club Zaventem & CC De Factorij",
     },
     stickyCta: {
       fromLabel: "Vanaf",

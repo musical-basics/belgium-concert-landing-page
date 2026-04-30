@@ -25,6 +25,10 @@ import { YouTubeGlyph } from "@/components/home2/youtube-glyph";
 import Countdown from "@/components/home2/countdown";
 import ComposerMarquee from "@/components/home2/composer-marquee";
 import StickyCta from "@/components/home2/sticky-cta";
+import {
+  useScrollDepthTracking,
+  useSectionViewTracking,
+} from "@/lib/use-scroll-tracking";
 
 const VENUE_URL =
   "https://www.ccdefactorij.be/nl/programma/lionel-yu-klassieke-piano-en-edm/7132/";
@@ -34,6 +38,13 @@ const CONTACT_EMAIL = "support@musicalbasics.com";
 
 export default function Home2Content() {
   const { t } = useLocale();
+
+  // CRO: scroll depth milestones (25/50/75/100%) → Vercel + GA4
+  useScrollDepthTracking();
+  // CRO: fire when tickets section enters viewport → GA4 + Meta ViewContent + TikTok
+  useSectionViewTracking("tickets", "ticket_section_viewed");
+  // CRO: fire when VIP section enters viewport
+  useSectionViewTracking("vip-experience", "vip_section_viewed");
 
   return (
     <div className="min-h-screen bg-[color:var(--bg)] text-white antialiased selection:bg-[color:var(--accent)] selection:text-[#0a0d14] overflow-x-hidden">
@@ -204,6 +215,47 @@ export default function Home2Content() {
           </div>
         </section>
 
+        {/* ============== TICKETS (CRO: moved up from bottom) ============== */}
+        <section
+          id="tickets"
+          className="relative py-24 sm:py-32 bg-[#0d111c] border-y border-white/[0.05]"
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-8">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl text-white uppercase tracking-tight mb-4 text-balance">
+                {t.home2.tickets.heading}
+              </h2>
+              <p className="font-serif italic text-lg sm:text-xl text-[color:var(--muted)] max-w-xl mx-auto mb-6">
+                {t.home2.tickets.subtitle}
+              </p>
+              {/* CRO: Urgency bar */}
+              <div className="inline-flex items-center gap-2.5 rounded-full bg-[color:var(--accent)]/10 border border-[color:var(--accent)]/25 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[color:var(--accent)] opacity-60" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[color:var(--accent)]" />
+                </span>
+                {t.home2.tickets.urgency}
+              </div>
+            </div>
+
+            {/* Decorative backdrop for ticket grid */}
+            <div className="relative">
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-[color:var(--accent)]/[0.06] blur-[100px] pointer-events-none"
+              />
+              <div className="relative">
+                <TicketSelector />
+              </div>
+            </div>
+
+            {/* CRO: Social proof / partnership line */}
+            <p className="mt-6 text-center text-[12px] text-[color:var(--muted)]/60">
+              {t.home2.tickets.socialProof}
+            </p>
+          </div>
+        </section>
+
         {/* ============== COMPOSER MARQUEE ============== */}
         <ComposerMarquee />
 
@@ -348,7 +400,7 @@ export default function Home2Content() {
         </section>
 
         {/* ============== VIP EXPERIENCE MOMENT ============== */}
-        <section className="relative overflow-hidden py-24 sm:py-28 bg-[color:var(--bg)]">
+        <section id="vip-experience" className="relative overflow-hidden py-24 sm:py-28 bg-[color:var(--bg)]">
           <div
             aria-hidden
             className="absolute -top-20 -left-20 w-[28rem] h-[28rem] bg-[color:var(--accent)]/10 blur-[120px] rounded-full pointer-events-none"
@@ -409,33 +461,7 @@ export default function Home2Content() {
           </div>
         </section>
 
-        {/* ============== TICKETS ============== */}
-        <section
-          id="tickets"
-          className="relative py-24 sm:py-32 bg-[#0d111c] border-t border-white/[0.05]"
-        >
-          <div className="max-w-4xl mx-auto px-4 sm:px-8">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl text-white uppercase tracking-tight mb-4 text-balance">
-                {t.home2.tickets.heading}
-              </h2>
-              <p className="font-serif italic text-lg sm:text-xl text-[color:var(--muted)] max-w-xl mx-auto">
-                {t.home2.tickets.subtitle}
-              </p>
-            </div>
-
-            {/* Decorative backdrop for ticket grid */}
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute inset-0 bg-[color:var(--accent)]/[0.06] blur-[100px] pointer-events-none"
-              />
-              <div className="relative">
-                <TicketSelector />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* TICKETS section moved up — see after trophy case */}
 
         {/* ============== EMAIL + LINKS ============== */}
         <section className="relative py-20 bg-[color:var(--bg)]">
