@@ -30,6 +30,7 @@ These rules apply to every Shopify operation performed in this repo. They are no
 3. **Allowlist of modifiable variant IDs** (update this list as needed, with user approval):
    - Standard ticket variant: `43946996957227`
    - VIP ticket variant: `43962297974827`
+   - Livestream variant: `43999228330027`
    - Do not modify any variant outside this allowlist without user approval in chat.
 
 4. **First operation in any session must be a read-only check.** Call `shop { name primaryDomain { url } }` and print the result. Do not proceed to any write until the user confirms auth looks correct.
