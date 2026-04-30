@@ -241,6 +241,21 @@ const en = {
       refundPolicy: "Free cancellation up to 7 days before the concert.",
       socialProof: "In partnership with Lions Club Zaventem & CC De Factorij",
     },
+    testimonials: {
+      eyebrow: "From the audience",
+      heading: "What audiences say",
+      pullQuoteEyebrow: "Concertgoer reaction",
+      cassandra: {
+        quote:
+          "My best concert. EVER. The sound… well you had to be there to experience it, from this incredible venue.",
+        attribution: "Cassandra S.",
+      },
+      austin: {
+        quote:
+          "This concert was absolutely transcendental sitting in the front row. The livestream just can’t capture the magnitude of the whole concert. It was absolutely surreal.",
+        attribution: "Austin G.",
+      },
+    },
     stickyCta: {
       fromLabel: "Starting from",
       fromPrice: "€29",
@@ -507,6 +522,23 @@ const nl: Dict = {
       trustLine: "Veilig betalen · Directe bevestiging",
       refundPolicy: "Gratis annulering tot 7 dagen voor het concert.",
       socialProof: "In samenwerking met Lions Club Zaventem & CC De Factorij",
+    },
+    // TODO: NL native review (Luc) — testimonials (quotes themselves stay in
+    // English; they are authentic audience reactions and should not be translated).
+    testimonials: {
+      eyebrow: "Uit het publiek",
+      heading: "Wat het publiek zegt",
+      pullQuoteEyebrow: "Reactie uit het publiek",
+      cassandra: {
+        quote:
+          "My best concert. EVER. The sound… well you had to be there to experience it, from this incredible venue.",
+        attribution: "Cassandra S.",
+      },
+      austin: {
+        quote:
+          "This concert was absolutely transcendental sitting in the front row. The livestream just can’t capture the magnitude of the whole concert. It was absolutely surreal.",
+        attribution: "Austin G.",
+      },
     },
     stickyCta: {
       fromLabel: "Vanaf",

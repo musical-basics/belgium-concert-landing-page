@@ -15,6 +15,7 @@ import {
   MapPin,
   Mail,
   Disc,
+  Quote,
 } from "lucide-react";
 import TicketSelector from "@/components/ticket-selector";
 import YouTubeFacade from "@/components/youtube-facade";
@@ -319,6 +320,35 @@ export default function Home2Content() {
           </div>
         </section>
 
+        {/* ============== PULL QUOTE (middle reinforcement) ============== */}
+        <section className="relative overflow-hidden bg-[color:var(--bg)] py-20 sm:py-28">
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(216,179,93,0.08),transparent_60%)] pointer-events-none"
+          />
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-8 text-center">
+            <Quote
+              aria-hidden
+              className="mx-auto mb-6 w-7 h-7 text-[color:var(--accent)]/70"
+              strokeWidth={1.25}
+            />
+            <p className="font-display text-[11px] tracking-[0.35em] uppercase text-[color:var(--muted)] mb-6">
+              {t.home2.testimonials.pullQuoteEyebrow}
+            </p>
+            <blockquote>
+              <p className="font-serif italic text-2xl sm:text-3xl md:text-4xl leading-[1.35] text-white text-balance">
+                {t.home2.testimonials.cassandra.quote}
+              </p>
+            </blockquote>
+            <div className="mt-8 inline-flex items-center gap-3">
+              <span aria-hidden className="block h-px w-10 bg-[color:var(--accent)]" />
+              <span className="font-display text-[11px] font-semibold uppercase tracking-[0.3em] text-[color:var(--accent)]">
+                — {t.home2.testimonials.cassandra.attribution}
+              </span>
+            </div>
+          </div>
+        </section>
+
         {/* ============== VIDEO ============== */}
         <section
           id="video-preview"
@@ -437,6 +467,35 @@ export default function Home2Content() {
                 <p className="font-serif italic text-white/90">{t.artist.p4}</p>
               </div>
 
+            </div>
+          </div>
+        </section>
+
+        {/* ============== TESTIMONIALS ============== */}
+        <section className="relative overflow-hidden py-24 sm:py-28 bg-[color:var(--bg)] border-y border-white/[0.05]">
+          <div
+            aria-hidden
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-[60rem] max-w-[120%] h-[24rem] bg-[color:var(--accent)]/[0.06] blur-[120px] rounded-full pointer-events-none"
+          />
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-8">
+            <div className="text-center mb-14 sm:mb-20">
+              <p className="font-display text-[11px] tracking-[0.35em] uppercase text-[color:var(--accent)] mb-3">
+                {t.home2.testimonials.eyebrow}
+              </p>
+              <h2 className="font-display text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-tight text-balance">
+                {t.home2.testimonials.heading}
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              <TestimonialCard
+                quote={t.home2.testimonials.cassandra.quote}
+                attribution={t.home2.testimonials.cassandra.attribution}
+              />
+              <TestimonialCard
+                quote={t.home2.testimonials.austin.quote}
+                attribution={t.home2.testimonials.austin.attribution}
+              />
             </div>
           </div>
         </section>
@@ -727,6 +786,38 @@ function ActPanel({
         </div>
       </div>
     </div>
+  );
+}
+
+function TestimonialCard({
+  quote,
+  attribution,
+}: {
+  quote: string;
+  attribution: string;
+}) {
+  return (
+    <figure className="relative h-full flex flex-col rounded-2xl border border-white/[0.08] bg-[#0b0e16]/80 backdrop-blur-sm p-8 sm:p-10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.55)] overflow-hidden">
+      <span
+        aria-hidden
+        className="font-serif select-none pointer-events-none absolute -top-2 left-5 sm:left-7 text-[140px] sm:text-[160px] leading-none text-[color:var(--accent)]/[0.18]"
+      >
+        &ldquo;
+      </span>
+
+      <blockquote className="relative pt-10 sm:pt-12 flex-1">
+        <p className="font-serif italic text-xl sm:text-2xl leading-[1.5] text-white/90 text-balance">
+          {quote}
+        </p>
+      </blockquote>
+
+      <figcaption className="relative mt-8 flex items-center gap-3">
+        <span aria-hidden className="block h-px w-8 bg-[color:var(--accent)]" />
+        <span className="font-display text-[12px] font-semibold uppercase tracking-[0.25em] text-[color:var(--accent)]">
+          — {attribution}
+        </span>
+      </figcaption>
+    </figure>
   );
 }
 
