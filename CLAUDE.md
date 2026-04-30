@@ -18,7 +18,7 @@ These rules apply to every Shopify operation performed in this repo. They are no
 ## Scope
 
 - Token stored in `.env.local` as `SHOPIFY_ADMIN_API_TOKEN` and `SHOPIFY_STORE_DOMAIN`.
-- Token scopes are limited to: `read_products`, `write_products`, `read_markets`, `write_markets`, `read_inventory`, `write_inventory`. No other scopes are granted.
+- Token scopes are limited to: `read_products`, `write_products`, `read_markets`, `write_markets`, `read_inventory`, `write_inventory`, `read_publications`, `write_publications`. No other scopes are granted.
 - Do NOT request or suggest additional scopes without explicit user approval.
 
 ## Operation rules
