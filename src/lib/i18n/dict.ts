@@ -86,15 +86,15 @@ const en = {
     maxPerOrder: "Max 5 per order",
   },
   email: {
-    kicker: "Not ready to book?",
-    heading: "Leave your email for updates",
+    kicker: "Seats are going fast",
+    heading: "Get a last-chance reminder",
     body:
-      "We'll send you performance previews and a final reminder before the concert. One-tap unsubscribe.",
+      "Drop your email — we'll notify you before the final seats are gone, plus send exclusive performance previews. One-tap unsubscribe.",
     emailPlaceholder: "you@example.com",
     namePlaceholder: "First name",
     consent:
       "I consent to receive email updates about this concert. I can unsubscribe any time.",
-    submit: "Subscribe",
+    submit: "Remind me",
     successTitle: "You're on the list.",
     successBody: "Check your inbox for a confirmation email.",
     errorTitle: "Something went wrong.",
@@ -330,15 +330,15 @@ const nl: Dict = {
   },
   // TODO: NL native review (Luc) — email capture
   email: {
-    kicker: "Niet klaar om te boeken?",
-    heading: "Laat je e-mail achter voor updates",
+    kicker: "Plaatsen gaan snel",
+    heading: "Ontvang een laatste herinnering",
     body:
-      "We sturen je performance previews en een laatste herinnering voor het concert. Afmelden kan met één klik.",
+      "Laat je e-mail achter — we verwittigen je voor de laatste plaatsen weg zijn, plus exclusieve previews van de show. Afmelden kan met één klik.",
     emailPlaceholder: "jouw@voorbeeld.be",
     namePlaceholder: "Voornaam",
     consent:
       "Ik ga akkoord met het ontvangen van e-mailupdates over dit concert. Ik kan me op elk moment afmelden.",
-    submit: "Inschrijven",
+    submit: "Herinner mij",
     successTitle: "Je staat op de lijst.",
     successBody: "Check je inbox voor een bevestigingsmail.",
     errorTitle: "Er ging iets mis.",
