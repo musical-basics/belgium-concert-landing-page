@@ -20,6 +20,7 @@ import TicketSelector from "@/components/ticket-selector";
 import YouTubeFacade from "@/components/youtube-facade";
 import EmailCapture from "@/components/email-capture";
 import LocaleToggle from "@/components/locale-toggle";
+import LivestreamSelector from "@/components/livestream-selector";
 import { useLocale } from "@/lib/i18n/context";
 import { YouTubeGlyph } from "@/components/home2/youtube-glyph";
 import Countdown from "@/components/home2/countdown";
@@ -253,6 +254,11 @@ export default function Home2Content() {
             <p className="mt-6 text-center text-[12px] text-[color:var(--muted)]/60">
               {t.home2.tickets.socialProof}
             </p>
+
+            {/* Livestream Option (Side-by-side concept on desktop via distinct block) */}
+            <div className="mt-24 sm:mt-32 pt-24 sm:pt-32 border-t border-white/[0.05]">
+              <LivestreamSelector />
+            </div>
           </div>
         </section>
 

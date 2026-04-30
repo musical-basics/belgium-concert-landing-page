@@ -109,6 +109,14 @@ const en = {
     errorTitle: "Something went wrong.",
     errorBody: "Please try again in a moment, or email us directly.",
   },
+  livestream: {
+    eyebrow: "CAN'T MAKE IT IN PERSON?",
+    heading: "Watch the livestream",
+    body: "Stream the full concert from anywhere. Normally $15 — $5 for my email list.",
+    cta: "Get Livestream Access · $5",
+    priceOrig: "$15",
+    priceDisc: "$5",
+  },
   footer: {
     rights: "All rights reserved.",
     location: "Location: Zaventem, Belgium",
@@ -362,6 +370,15 @@ const nl: Dict = {
     successBody: "Check je inbox voor een bevestigingsmail.",
     errorTitle: "Er ging iets mis.",
     errorBody: "Probeer het zo opnieuw, of mail ons direct.",
+  },
+  // TODO: NL native review (Luc) — livestream
+  livestream: {
+    eyebrow: "KUN JE ER NIET BIJ ZIJN?",
+    heading: "Bekijk de livestream",
+    body: "Stream het volledige concert van overal. Normaal $15 — $5 voor mijn mailinglijst.",
+    cta: "Livestream Toegang · $5",
+    priceOrig: "$15",
+    priceDisc: "$5",
   },
   // TODO: NL native review (Luc) — footer
   footer: {

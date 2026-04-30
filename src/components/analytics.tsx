@@ -71,27 +71,34 @@ export function trackBeginCheckout({
 }: {
   variantId: string;
   quantity: number;
-  tier: "standard" | "vip";
+  tier: "standard" | "vip" | "livestream";
   utm: UTMParams;
 }) {
   if (typeof window === "undefined") return;
-  const unitPrice = tier === "vip" ? 59 : 29;
+  const unitPrice = tier === "vip" ? 59 : tier === "livestream" ? 5 : 29;
+  const currency = tier === "livestream" ? "USD" : "EUR";
   const value = unitPrice * quantity;
 
   track("begin_checkout", {
     tier,
     quantity,
     value,
+    currency,
     variantId,
   });
 
   window.gtag?.("event", "begin_checkout", {
-    currency: "EUR",
+    currency,
     value,
     items: [
       {
         item_id: variantId,
-        item_name: tier === "vip" ? "VIP Ticket" : "Standard Ticket",
+        item_name:
+          tier === "vip"
+            ? "VIP Ticket"
+            : tier === "livestream"
+            ? "Livestream Access"
+            : "Standard Ticket",
         item_category: tier,
         quantity,
         price: unitPrice,
@@ -107,7 +114,7 @@ export function trackBeginCheckout({
     content_ids: [variantId],
     contents: [{ id: variantId, quantity }],
     content_type: "product",
-    currency: "EUR",
+    currency: currency,
     value,
   });
 
@@ -116,6 +123,6 @@ export function trackBeginCheckout({
     quantity,
     price: unitPrice,
     value,
-    currency: "EUR",
+    currency: currency,
   });
 }

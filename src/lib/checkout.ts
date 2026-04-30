@@ -1,5 +1,6 @@
 export const STANDARD_VARIANT_ID = "43946996957227";
 export const VIP_VARIANT_ID = "43962297974827";
+export const LIVESTREAM_VARIANT_ID = "43999228330027";
 
 export type UTMParams = {
   source: string;
