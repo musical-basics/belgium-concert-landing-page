@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { cookies } from "next/headers";
 import Analytics from "@/components/analytics";
+import DpAnalyticsBeacon from "@/components/dp-analytics-beacon";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -63,6 +64,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
+        <DpAnalyticsBeacon />
         <VercelAnalytics />
       </body>
     </html>
