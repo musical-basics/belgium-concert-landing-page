@@ -1,0 +1,13 @@
+import { createAnalyticsDashboardVisitorHistoryHandler } from "@dreamplay/analytics/dashboard-server";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+export const GET = createAnalyticsDashboardVisitorHistoryHandler({
+  supabaseUrl: (process.env.ANALYTICS_SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL)!,
+  supabaseServiceRoleKey: (
+    process.env.ANALYTICS_SUPABASE_SERVICE_ROLE_KEY ??
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  )!,
+  business: "concert",
+});
