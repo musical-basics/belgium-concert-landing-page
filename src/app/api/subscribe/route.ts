@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
+import { subscribeToEmailerDatabase } from "@dreamplay/emailer/server";
 
-const UPSTREAM =
-  process.env.EMAIL_SERVICE_URL ||
-  "https://email.dreamplaypianos.com/api/webhooks/subscribe";
-const UPSTREAM_TOKEN = process.env.EMAIL_SERVICE_TOKEN;
-const WORKSPACE = process.env.EMAIL_SERVICE_WORKSPACE || "concert_marketing";
-const TAG = process.env.EMAIL_SERVICE_TAG || "belgium-concert-2026";
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
+const WORKSPACE = "concert_marketing" as const;
+const DEFAULT_TAGS = ["belgium-concert-2026"];
 
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
@@ -38,33 +38,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "consent_required" }, { status: 400 });
   }
 
-  const payload = {
+  const result = await subscribeToEmailerDatabase({
     email,
     first_name: firstName,
-    tags: [TAG],
+    tags: DEFAULT_TAGS,
     workspace: WORKSPACE,
     gdpr_consent: true,
-  };
+  });
 
-  try {
-    const upstream = await fetch(UPSTREAM, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        ...(UPSTREAM_TOKEN ? { authorization: `Bearer ${UPSTREAM_TOKEN}` } : {}),
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!upstream.ok) {
-      const text = await upstream.text().catch(() => "");
-      console.error("subscribe upstream failed", upstream.status, text);
-      return NextResponse.json({ error: "upstream_failed" }, { status: 502 });
-    }
-
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("subscribe upstream error", err);
-    return NextResponse.json({ error: "upstream_error" }, { status: 502 });
+  if (!result.success) {
+    console.error("subscribe failed", result.error);
+    return NextResponse.json(
+      { error: result.error || "subscribe_failed" },
+      { status: result.status ?? 502 }
+    );
   }
+
+  return NextResponse.json({ ok: true, id: result.id });
 }
