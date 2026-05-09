@@ -21,19 +21,22 @@ const STATUS_LABEL: Record<SeatStatus, string> = {
 };
 
 export default function OrdersTable({ orders }: { orders: TicketOrder[] }) {
-  const sorted = useMemo(() => {
-    const order: Record<SeatStatus, number> = { pending: 0, assigned: 1, error: 2, emailed: 3, cancelled: 4 };
-    return [...orders].sort((a, b) => {
-      if (order[a.seat_status] !== order[b.seat_status]) return order[a.seat_status] - order[b.seat_status];
-      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
-    });
-  }, [orders]);
+  const [filter, setFilter] = useState<SeatStatus | null>(null);
 
   const counts = useMemo(() => {
     const c: Record<SeatStatus, number> = { pending: 0, assigned: 0, emailed: 0, error: 0, cancelled: 0 };
     for (const o of orders) c[o.seat_status]++;
     return c;
   }, [orders]);
+
+  const sorted = useMemo(() => {
+    const filtered = filter ? orders.filter((o) => o.seat_status === filter) : orders;
+    const order: Record<SeatStatus, number> = { pending: 0, assigned: 1, error: 2, emailed: 3, cancelled: 4 };
+    return [...filtered].sort((a, b) => {
+      if (order[a.seat_status] !== order[b.seat_status]) return order[a.seat_status] - order[b.seat_status];
+      return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+    });
+  }, [orders, filter]);
 
   return (
     <main style={{ minHeight: "100vh", background: "#0b0b0c", color: "#f4f4f5", fontFamily: "-apple-system,Segoe UI,Roboto,sans-serif", padding: "24px 16px 80px" }}>
@@ -50,18 +53,54 @@ export default function OrdersTable({ orders }: { orders: TicketOrder[] }) {
           </form>
         </header>
 
-        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
-          {(["pending", "assigned", "emailed", "error", "cancelled"] as SeatStatus[]).map((s) => (
-            <span key={s} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 10px", borderRadius: 999, background: "#17171a", border: "1px solid #2a2a2e", fontSize: 12 }}>
-              <span style={{ width: 8, height: 8, borderRadius: 999, background: STATUS_COLOR[s] }} />
-              {STATUS_LABEL[s]}: <strong>{counts[s]}</strong>
-            </span>
-          ))}
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20, alignItems: "center" }}>
+          <button
+            onClick={() => setFilter(null)}
+            style={{
+              padding: "4px 10px",
+              borderRadius: 999,
+              background: filter === null ? "#fff" : "#17171a",
+              color: filter === null ? "#000" : "#f4f4f5",
+              border: "1px solid #2a2a2e",
+              fontSize: 12,
+              fontWeight: filter === null ? 600 : 400,
+              cursor: "pointer",
+            }}
+          >
+            All: <strong>{orders.length}</strong>
+          </button>
+          {(["pending", "assigned", "emailed", "error", "cancelled"] as SeatStatus[]).map((s) => {
+            const active = filter === s;
+            return (
+              <button
+                key={s}
+                onClick={() => setFilter(active ? null : s)}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  padding: "4px 10px",
+                  borderRadius: 999,
+                  background: active ? STATUS_COLOR[s] : "#17171a",
+                  color: active ? "#000" : "#f4f4f5",
+                  border: `1px solid ${active ? STATUS_COLOR[s] : "#2a2a2e"}`,
+                  fontSize: 12,
+                  fontWeight: active ? 600 : 400,
+                  cursor: "pointer",
+                }}
+              >
+                <span style={{ width: 8, height: 8, borderRadius: 999, background: active ? "#000" : STATUS_COLOR[s] }} />
+                {STATUS_LABEL[s]}: <strong>{counts[s]}</strong>
+              </button>
+            );
+          })}
         </div>
 
         {sorted.length === 0 && (
           <div style={{ background: "#17171a", border: "1px solid #2a2a2e", borderRadius: 12, padding: 32, textAlign: "center", color: "#a1a1aa" }}>
-            No orders yet. They will appear here automatically when Shopify webhooks fire.
+            {filter
+              ? `No orders with status "${STATUS_LABEL[filter]}". Click "All" to clear the filter.`
+              : "No orders yet. They will appear here automatically when Shopify webhooks fire."}
           </div>
         )}
 
