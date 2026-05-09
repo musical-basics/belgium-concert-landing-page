@@ -62,10 +62,11 @@ for (const topic of TOPICS) {
   console.log(`+ ${topic} registered (${out.webhookSubscription.id})`);
 }
 
-// 3. Print the shared webhook secret. Shopify sets this once per app/store
-//    in Settings → Notifications → Webhooks ("Webhook signing secret").
+// 3. For webhooks registered via the Admin API (this script), Shopify signs the
+//    HMAC with the app's API secret key (a.k.a. client secret). NOT the separate
+//    "Webhook signing secret" shown in admin → Notifications, which only applies
+//    to webhooks created via that admin UI.
 console.log("\nNext steps:");
-console.log("1. Visit Shopify admin → Settings → Notifications → Webhooks.");
-console.log("   Copy the 'Webhook signing secret' (single value, shared by all topics).");
-console.log("2. Set SHOPIFY_WEBHOOK_SECRET=<that value> in .env.local AND in Vercel env vars.");
-console.log("3. Redeploy (push any change to main) so Vercel picks up the new env var.");
+console.log("1. Set SHOPIFY_WEBHOOK_SECRET=<your SHOPIFY_CLIENT_SECRET value> in Vercel env vars");
+console.log("   (Production + Preview). Same value as already in your .env.local.");
+console.log("2. Redeploy (push any change to main) so Vercel picks up the new env var.");
