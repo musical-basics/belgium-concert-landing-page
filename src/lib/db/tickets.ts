@@ -4,12 +4,9 @@
 const SCHEMA = "concert_tickets";
 
 function env() {
-  const url = process.env.ANALYTICS_SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key =
-    process.env.ANALYTICS_SUPABASE_SERVICE_ROLE_KEY ??
-    process.env.SUPABASE_SERVICE_ROLE_KEY ??
-    process.env.SUPABASE_SERVICE_KEY;
-  if (!url || !key) throw new Error("missing analytics Supabase env vars");
+  const url = process.env.TICKETS_SUPABASE_URL;
+  const key = process.env.TICKETS_SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) throw new Error("missing TICKETS_SUPABASE_URL / TICKETS_SUPABASE_SERVICE_ROLE_KEY");
   return { url, key };
 }
 

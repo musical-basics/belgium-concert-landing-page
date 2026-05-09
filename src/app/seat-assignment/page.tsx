@@ -6,5 +6,5 @@ export const runtime = "nodejs";
 
 export default async function SeatAssignmentPage() {
   const orders = await listTicketOrders();
-  return <OrdersTable initialOrders={orders} />;
+  return <OrdersTable orders={orders} />;
 }
