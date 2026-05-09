@@ -10,6 +10,8 @@ export type SeatEmailVars = {
 export const EVENT_DATE_NL = "donderdag 11 juni 2026 om 19:30";
 export const EVENT_DATE_EN = "Thursday, June 11, 2026 at 19:30";
 export const VENUE = "Theaterzaal Maupertuis, CC De Factorij, Zaventem";
+export const EVENT_INFO_URL = "https://www.ccdefactorij.be/nl/programma/lionel-yu-klassieke-piano-en-edm/7132/";
+export const SUPPORT_EMAIL = "support@musicalbasics.com";
 
 export function renderSubject(): string {
   return "Jouw stoelnummer / Your seat assignment — Lionel Yu, Zaventem";
@@ -30,6 +32,9 @@ export function renderText(v: SeatEmailVars): string {
     "Tickets zijn beschikbaar bij de receptie op de dag van het optreden.",
     "Wij raden aan om 15 minuten op voorhand aanwezig te zijn.",
     "",
+    `Voor meer informatie over het evenement: ${EVENT_INFO_URL}`,
+    `Bij vragen, mail ons op ${SUPPORT_EMAIL}.`,
+    "",
     "Tot snel!",
     "Het MusicalBasics Team",
     "",
@@ -46,6 +51,9 @@ export function renderText(v: SeatEmailVars): string {
     "Tickets will be available at the reception on the day of the venue.",
     "We recommend arriving 15 minutes early.",
     "",
+    `For more information regarding the event: ${EVENT_INFO_URL}`,
+    `If any questions, please email us at ${SUPPORT_EMAIL}.`,
+    "",
     "See you there,",
     "The MusicalBasics Team",
   ].join("\n");
@@ -61,12 +69,14 @@ export function renderHtml(v: SeatEmailVars): string {
   <p>Bedankt voor je ticketaankoop${orderRef} voor <strong>Lionel Yu — Klassieke Piano en EDM</strong> op ${EVENT_DATE_NL} in ${VENUE}.</p>
   <p style="background:#f4f4f5;border-left:4px solid #111;padding:12px 16px;font-size:18px"><strong>Jouw toegewezen stoel(en):</strong><br>${seats.replace(/\n/g, "<br>")}</p>
   <p>Tickets zijn beschikbaar bij de receptie op de dag van het optreden. Wij raden aan om 15 minuten op voorhand aanwezig te zijn.</p>
+  <p>Voor meer informatie over het evenement: <a href="${EVENT_INFO_URL}">${EVENT_INFO_URL}</a><br>Bij vragen, mail ons op <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.</p>
   <p>Tot snel!<br>Het MusicalBasics Team</p>
   <hr style="border:none;border-top:1px solid #e5e5e5;margin:32px 0">
   <p>Hi ${name || "there"},</p>
   <p>Thank you for your ticket purchase${orderRef} for <strong>Lionel Yu — Klassieke Piano en EDM</strong> on ${EVENT_DATE_EN} at ${VENUE}.</p>
   <p style="background:#f4f4f5;border-left:4px solid #111;padding:12px 16px;font-size:18px"><strong>Your assigned seat(s):</strong><br>${seats.replace(/\n/g, "<br>")}</p>
   <p>Tickets will be available at the reception on the day of the venue. We recommend arriving 15 minutes early.</p>
+  <p>For more information regarding the event: <a href="${EVENT_INFO_URL}">${EVENT_INFO_URL}</a><br>If any questions, please email us at <a href="mailto:${SUPPORT_EMAIL}">${SUPPORT_EMAIL}</a>.</p>
   <p>See you there,<br>The MusicalBasics Team</p>
 </body></html>`;
 }
