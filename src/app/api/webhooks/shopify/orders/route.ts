@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { verifyShopifyWebhook } from "@/lib/shopify/verify-webhook";
 import { mapShopifyOrder, type ShopifyOrder } from "@/lib/shopify/order-mapping";
 import { upsertTicketOrder, getTicketOrderByShopifyId, recordEvent } from "@/lib/db/tickets";
+import { sendNewOrderNotification } from "@/lib/email/send-new-order-notification";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -58,6 +59,36 @@ export async function POST(req: Request) {
       actor: "shopify_webhook",
       payload: { topic, order_status: row.order_status },
     });
+
+    // Notify organizers — only on FIRST creation, not on re-fires (orders/paid, etc).
+    if (isNew) {
+      const notify = await sendNewOrderNotification({
+        orderName: row.shopify_order_name,
+        customerFirstName: row.customer_first_name,
+        customerLastName: row.customer_last_name,
+        customerEmail: row.customer_email,
+        ticketQuantity: row.ticket_quantity,
+        ticketType: row.ticket_type,
+      });
+      if (notify.ok) {
+        if (!("skipped" in notify) || !notify.skipped) {
+          await recordEvent({
+            ticket_order_id: row.id,
+            event_type: "organizer_notified",
+            actor: "system",
+            payload: { providerId: "id" in notify ? notify.id : null },
+          });
+        }
+      } else {
+        console.warn("[shopify-webhook] organizer notify failed", notify.error);
+        await recordEvent({
+          ticket_order_id: row.id,
+          event_type: "organizer_notify_failed",
+          actor: "system",
+          payload: { error: notify.error },
+        });
+      }
+    }
 
     return NextResponse.json({ ok: true, id: row.id, isNew });
   } catch (e) {
