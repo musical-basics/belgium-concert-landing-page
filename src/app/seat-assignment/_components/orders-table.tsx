@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useTransition } from "react";
 import type { TicketOrder, SeatStatus } from "@/lib/db/tickets";
-import { saveSeatsAction, saveAndEmailAction, logoutAction } from "../actions";
+import { saveSeatsAction, saveAndEmailAction, logoutAction, deleteOrderAction } from "../actions";
 
 const STATUS_COLOR: Record<SeatStatus, string> = {
   pending: "#facc15",
@@ -166,6 +166,21 @@ function OrderRow({ order: o }: { order: TicketOrder }) {
     });
   }
 
+  function onDelete() {
+    const label = `${o.shopify_order_name || `#${o.shopify_order_id}`} — ${o.customer_email}`;
+    const ok = window.confirm(
+      `Permanently delete this order from the dashboard?\n\n${label}\n\nThis only removes it from the seat-assignment dashboard. The Shopify order itself is NOT touched.`
+    );
+    if (!ok) return;
+    setMessage(null);
+    setError(null);
+    startTransition(async () => {
+      const result = await deleteOrderAction(o.id);
+      if (!result.ok) setError(result.error);
+      // On success the page revalidates and this row will disappear.
+    });
+  }
+
   return (
     <div style={{ background: "#17171a", border: "1px solid #2a2a2e", borderRadius: 12, padding: 16 }}>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between", alignItems: "baseline", marginBottom: 12 }}>
@@ -218,7 +233,7 @@ function OrderRow({ order: o }: { order: TicketOrder }) {
       {message && <div style={{ marginTop: 10, color: "#86efac", fontSize: 12 }}>{message}</div>}
       {error && <div style={{ marginTop: 10, color: "#fca5a5", fontSize: 12 }}>{error}</div>}
 
-      <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+      <div style={{ display: "flex", gap: 8, marginTop: 12, alignItems: "center" }}>
         <button
           onClick={onSaveAndEmail}
           disabled={pending}
@@ -232,6 +247,14 @@ function OrderRow({ order: o }: { order: TicketOrder }) {
           style={{ padding: "8px 14px", borderRadius: 8, border: "1px solid #3f3f46", background: "transparent", color: "#fff", fontSize: 13, cursor: pending ? "wait" : "pointer", opacity: pending ? 0.6 : 1 }}
         >
           Save Without Email
+        </button>
+        <button
+          onClick={onDelete}
+          disabled={pending}
+          title="Remove this order from the dashboard (does NOT affect Shopify)"
+          style={{ marginLeft: "auto", padding: "8px 12px", borderRadius: 8, border: "1px solid #3f1d1d", background: "transparent", color: "#fca5a5", fontSize: 12, cursor: pending ? "wait" : "pointer", opacity: pending ? 0.6 : 1 }}
+        >
+          Delete
         </button>
       </div>
     </div>

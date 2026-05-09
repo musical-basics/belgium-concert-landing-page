@@ -10,7 +10,7 @@ import {
   signSession,
   verifySession,
 } from "@/lib/auth/organizer";
-import { getTicketOrder, recordEvent, updateTicketOrder } from "@/lib/db/tickets";
+import { deleteTicketOrder, getTicketOrder, recordEvent, updateTicketOrder } from "@/lib/db/tickets";
 import { sendSeatEmail } from "@/lib/email/send-seat-email";
 
 const PATH = "/seat-assignment";
@@ -162,4 +162,23 @@ export async function saveAndEmailAction(
 
   revalidatePath(PATH);
   return { ok: true, dryRun: send.dryRun };
+}
+
+// ---------------------------------------------------------------------------
+// Delete order (test-cleanup only — does NOT touch Shopify)
+// ---------------------------------------------------------------------------
+
+export async function deleteOrderAction(id: string): Promise<SaveResult> {
+  const session = await requireOrganizer();
+  const before = await getTicketOrder(id);
+  if (!before) return { ok: false, error: "Order not found." };
+
+  await deleteTicketOrder(id);
+  // Audit row is cascade-deleted with the parent. Log a system-level note
+  // so we have a trail of who deleted what.
+  console.log(
+    `[seat-assignment] deleted ticket_order id=${id} shopify=${before.shopify_order_id} by=${session.actor}`
+  );
+  revalidatePath(PATH);
+  return { ok: true };
 }

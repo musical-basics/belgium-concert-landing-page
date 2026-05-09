@@ -115,6 +115,11 @@ export async function updateTicketOrder(id: string, patch: Partial<TicketOrder>)
   return rows[0];
 }
 
+export async function deleteTicketOrder(id: string): Promise<void> {
+  const params = new URLSearchParams({ id: `eq.${id}` });
+  await call(`ticket_orders?${params.toString()}`, { method: "DELETE" }, true);
+}
+
 export type TicketEvent = {
   ticket_order_id: string;
   event_type: string;
