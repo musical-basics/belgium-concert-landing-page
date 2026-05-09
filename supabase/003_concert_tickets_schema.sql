@@ -48,6 +48,17 @@ create table if not exists concert_tickets.ticket_order_events (
 create index if not exists ticket_order_events_ticket_order_id_idx
   on concert_tickets.ticket_order_events (ticket_order_id, created_at desc);
 
+-- Required for the service-role REST client to actually access this schema.
+-- Custom schemas in Supabase do not auto-grant; without these, PostgREST
+-- returns 403 "permission denied for schema concert_tickets".
+grant usage on schema concert_tickets to service_role, anon, authenticated;
+grant all on all tables in schema concert_tickets to service_role;
+grant all on all sequences in schema concert_tickets to service_role;
+alter default privileges in schema concert_tickets
+  grant all on tables to service_role;
+alter default privileges in schema concert_tickets
+  grant all on sequences to service_role;
+
 create or replace function concert_tickets.touch_updated_at()
 returns trigger as $$
 begin
@@ -62,6 +73,6 @@ create trigger ticket_orders_touch_updated_at
   for each row execute function concert_tickets.touch_updated_at();
 
 -- Expose schema to PostgREST so the service-role client can query it.
--- (The ANALYTICS Supabase project already exposes 'concert_analytics'; we add this one.)
 -- Run this manually via Supabase Dashboard → API Settings → "Exposed schemas":
 --   add: concert_tickets
+-- (The grants above handle permissions; this exposes the schema to the REST API.)
