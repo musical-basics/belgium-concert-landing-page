@@ -230,6 +230,7 @@ const en = {
     stage: {
       eyebrow: "On Stage",
       heading: "Before the night in Zaventem",
+      captionConcert: "Carnegie Hall, Dec 2018",
       captionBarbican: "Live with violinist Barbara",
       captionSpeaking: "Between the pieces",
     },
@@ -237,7 +238,7 @@ const en = {
       heading: "Secure your seat",
       subtitle: "One night only in Belgium. Capacity is strictly limited.",
       urgency: "Selling fast — over half sold",
-      trustLine: "Secure checkout · Instant confirmation",
+      trustLine: "Limited seats available. Reserve now to lock in the best seats!",
       refundPolicy: "Free cancellation up to 7 days before the concert.",
       socialProof: "In partnership with Lions Club Zaventem & CC De Factorij",
     },
@@ -512,6 +513,7 @@ const nl: Dict = {
     stage: {
       eyebrow: "Op het podium",
       heading: "Voor de avond in Zaventem",
+      captionConcert: "Carnegie Hall, Dec 2018",
       captionBarbican: "Live met violiste Barbara",
       captionSpeaking: "Tussen de stukken door",
     },
@@ -519,7 +521,7 @@ const nl: Dict = {
       heading: "Reserveer je stoel",
       subtitle: "Eén avond in België. Beperkt aantal plaatsen.",
       urgency: "Verkoopt snel — meer dan de helft verkocht",
-      trustLine: "Veilig betalen · Directe bevestiging",
+      trustLine: "Beperkt aantal stoelen beschikbaar. Reserveer nu om de beste plaatsen vast te leggen!",
       refundPolicy: "Gratis annulering tot 7 dagen voor het concert.",
       socialProof: "In samenwerking met Lions Club Zaventem & CC De Factorij",
     },
