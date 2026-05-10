@@ -5,6 +5,7 @@ import { Ticket, Sparkles, Minus, Plus } from "lucide-react";
 import {
   STANDARD_VARIANT_ID,
   VIP_VARIANT_ID,
+  VIP_SOLD_OUT,
   DEFAULT_UTM,
   readUTMFromLocation,
   buildCheckoutUrl,
@@ -45,6 +46,7 @@ export default function TicketSelector() {
         const qty = quantities[cfg.id];
         const tierCopy = cfg.id === "vip" ? t.tickets.vip : t.tickets.standard;
         const isVip = cfg.id === "vip";
+        const isSoldOut = isVip && VIP_SOLD_OUT;
         const href = buildCheckoutUrl({
           variantId: cfg.variantId,
           quantity: qty,
@@ -59,12 +61,18 @@ export default function TicketSelector() {
               isVip
                 ? "bg-gradient-to-br from-[#1a1e2c] to-[#0d0f17] ring-1 ring-white/15"
                 : "bg-[#1a1e2c]/70 ring-1 ring-white/10",
+              isSoldOut ? "opacity-70" : "",
             ].join(" ")}
           >
-            {isVip && (
+            {isVip && !isSoldOut && (
               <span className="absolute -top-3 left-6 flex items-center gap-1.5 rounded-full bg-white text-[#121622] text-[10px] font-semibold uppercase tracking-widest px-3 py-1">
                 <Sparkles className="w-3 h-3" />
                 {t.tickets.vip.badge}
+              </span>
+            )}
+            {isSoldOut && (
+              <span className="absolute -top-3 left-6 flex items-center gap-1.5 rounded-full bg-[#7f1d1d] text-white text-[10px] font-semibold uppercase tracking-widest px-3 py-1">
+                Sold Out
               </span>
             )}
 
@@ -85,6 +93,13 @@ export default function TicketSelector() {
               ))}
             </ul>
 
+            {isSoldOut ? (
+              <div className="mt-auto flex flex-col items-center gap-2 py-4">
+                <div className="w-full text-center font-semibold text-[15px] px-6 py-4 rounded-[999px] border border-white/15 bg-white/5 text-white/70 uppercase tracking-widest">
+                  Sold Out
+                </div>
+              </div>
+            ) : (
             <div className="mt-auto space-y-3">
               <label
                 htmlFor={`quantity-${cfg.id}`}
@@ -162,6 +177,7 @@ export default function TicketSelector() {
                 {t.home2.tickets.trustLine}
               </p>
             </div>
+            )}
           </div>
         );
       })}

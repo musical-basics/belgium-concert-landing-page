@@ -2,6 +2,10 @@ export const STANDARD_VARIANT_ID = "43946996957227";
 export const VIP_VARIANT_ID = "43962297974827";
 export const LIVESTREAM_VARIANT_ID = "43999228330027";
 
+// Flip to false once VIP allotment is replenished. Used by TicketSelector to
+// hide the buy CTA + qty picker behind a SOLD OUT label.
+export const VIP_SOLD_OUT = true;
+
 export type UTMParams = {
   source: string;
   medium: string;
