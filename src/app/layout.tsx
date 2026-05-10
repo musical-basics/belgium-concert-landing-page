@@ -66,6 +66,18 @@ export default async function RootLayout({
         <Analytics />
         <DpAnalyticsBeacon />
         <VercelAnalytics />
+        {/*
+          Email-click attribution beacon. Hosted at dp-email-3 so the
+          script content can be updated centrally without a per-repo
+          rebuild (5-minute edge cache for propagation). When a recipient
+          clicks an email link with sid/cid query params, this script
+          fires a fire-and-forget fetch to /api/track/click on this same
+          origin so subscriber_events captures the click.
+        */}
+        <script
+          src="https://email.dreamplaypianos.com/track-attribution.js"
+          async
+        />
       </body>
     </html>
   );
