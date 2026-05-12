@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@dreamplay/analytics':
         specifier: github:musical-basics/dreamplay-packages#path:/packages/analytics
-        version: https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/73a1b6b8367313ed7fa27a402cabcc8bf873adc2#path:/packages/analytics(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/e737e46bed64c1b8daa22fcc4a1c161d5cf76e6f#path:/packages/analytics(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@dreamplay/emailer':
         specifier: github:musical-basics/dreamplay-packages#path:/packages/emailer
         version: https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/de13107fe9b2ead35a997a81a26913bcdaf3bce9#path:/packages/emailer(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -131,8 +131,8 @@ packages:
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
 
-  '@dreamplay/analytics@https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/73a1b6b8367313ed7fa27a402cabcc8bf873adc2#path:/packages/analytics':
-    resolution: {path: /packages/analytics, tarball: https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/73a1b6b8367313ed7fa27a402cabcc8bf873adc2}
+  '@dreamplay/analytics@https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/e737e46bed64c1b8daa22fcc4a1c161d5cf76e6f#path:/packages/analytics':
+    resolution: {path: /packages/analytics, tarball: https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/e737e46bed64c1b8daa22fcc4a1c161d5cf76e6f}
     version: 0.1.0
     peerDependencies:
       react: '>=18 <20'
@@ -2168,7 +2168,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@dreamplay/analytics@https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/73a1b6b8367313ed7fa27a402cabcc8bf873adc2#path:/packages/analytics(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@dreamplay/analytics@https://codeload.github.com/musical-basics/dreamplay-packages/tar.gz/e737e46bed64c1b8daa22fcc4a1c161d5cf76e6f#path:/packages/analytics(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
       '@supabase/supabase-js': 2.105.1
       lucide-react: 1.14.0(react@19.2.5)
