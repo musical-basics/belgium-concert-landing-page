@@ -112,7 +112,7 @@ const en = {
   livestream: {
     eyebrow: "CAN'T MAKE IT IN PERSON?",
     heading: "Watch the livestream",
-    body: "Stream the full concert from anywhere. Normally $15 — $5 for my email list.",
+    body: "Stream the full concert from anywhere, plus lifetime access to the recording. Normally $15 — $5 for my email list.",
     cta: "Get Livestream Access · $5",
     priceOrig: "$15",
     priceDisc: "$5",
@@ -390,7 +390,7 @@ const nl: Dict = {
   livestream: {
     eyebrow: "KUN JE ER NIET BIJ ZIJN?",
     heading: "Bekijk de livestream",
-    body: "Stream het volledige concert van overal. Normaal $15 — $5 voor mijn mailinglijst.",
+    body: "Stream het volledige concert van overal, plus levenslange toegang tot de opname. Normaal $15 — $5 voor mijn mailinglijst.",
     cta: "Livestream Toegang · $5",
     priceOrig: "$15",
     priceDisc: "$5",
