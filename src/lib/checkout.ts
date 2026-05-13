@@ -7,6 +7,7 @@ export type UTMParams = {
   medium: string;
   campaign: string;
   content?: string;
+  term?: string;
 };
 
 export const DEFAULT_UTM: UTMParams = {
@@ -24,6 +25,7 @@ export function readUTMFromLocation(search: string): UTMParams {
     medium: pick("utm_medium", DEFAULT_UTM.medium),
     campaign: pick("utm_campaign", DEFAULT_UTM.campaign),
     content: params.get("utm_content")?.slice(0, 120) || undefined,
+    term: params.get("utm_term")?.slice(0, 120) || undefined,
   };
 }
 
@@ -42,5 +44,6 @@ export function buildCheckoutUrl({
     utm_campaign: utm.campaign,
   });
   if (utm.content) qs.set("utm_content", utm.content);
+  if (utm.term) qs.set("utm_term", utm.term);
   return `https://eu.musicalbasics.com/cart/${variantId}:${quantity}?${qs.toString()}`;
 }
