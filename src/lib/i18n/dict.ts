@@ -117,6 +117,22 @@ const en = {
     priceOrig: "$15",
     priceDisc: "$5",
   },
+  refundPolicy: {
+    eyebrow: "Buyer Information",
+    heading: "Refund & cancellation policy",
+    seller:
+      "Tickets are sold by MusicalBasics Productions LLC, the primary seller. We are the artist and event organizer. Tickets are processed through Shopify and ship as digital confirmations to your email.",
+    nonRefundable:
+      "Tickets are non-refundable under normal circumstances. They are transferable; if you cannot attend, you may give your ticket to someone else.",
+    organizerCancellation:
+      "If the event is cancelled or rescheduled by the organizer, ticket holders will receive a full refund to the original payment method within 14 days of the cancellation announcement.",
+    eventDetailsLabel: "Event details",
+    eventDetails:
+      "2026-06-11, CC De Factorij, Zaventem, Belgium. Doors at TBA, performance starts at TBA. 100-seat venue, assigned seating.",
+    contact:
+      "For any questions about your ticket or this policy, contact lionel@musicalbasics.com.",
+    footerLink: "Refund & cancellation policy",
+  },
   footer: {
     rights: "All rights reserved.",
     location: "Location: Zaventem, Belgium",
@@ -238,7 +254,7 @@ const en = {
       subtitle: "One night only in Belgium. Capacity is strictly limited.",
       urgency: "Selling fast — over half sold",
       trustLine: "Secure checkout · Instant confirmation",
-      refundPolicy: "Free cancellation up to 7 days before the concert.",
+      refundPolicy: "Tickets are non-refundable but transferable. Full refund if the event is cancelled by the organizer.",
       socialProof: "In partnership with Lions Club Zaventem & CC De Factorij",
     },
     testimonials: {
@@ -395,6 +411,23 @@ const nl: Dict = {
     priceOrig: "$15",
     priceDisc: "$5",
   },
+  // TODO: NL native review (Luc): refund policy
+  refundPolicy: {
+    eyebrow: "Informatie voor kopers",
+    heading: "Annulerings- en terugbetalingsbeleid",
+    seller:
+      "Tickets worden verkocht door MusicalBasics Productions LLC, de primaire verkoper. Wij zijn de artiest en organisator van het evenement. Tickets worden verwerkt via Shopify en worden als digitale bevestiging naar je e-mail verstuurd.",
+    nonRefundable:
+      "Tickets zijn onder normale omstandigheden niet terugbetaalbaar. Ze zijn wel overdraagbaar; als je niet kunt komen, mag je je ticket aan iemand anders geven.",
+    organizerCancellation:
+      "Als het evenement door de organisator wordt geannuleerd of verplaatst, ontvangen tickethouders binnen 14 dagen na de annuleringsaankondiging een volledige terugbetaling op de oorspronkelijke betaalmethode.",
+    eventDetailsLabel: "Details van het evenement",
+    eventDetails:
+      "11 juni 2026, CC De Factorij, Zaventem, België. Deuren openen op TBA, concert start op TBA. Zaal met 100 plaatsen, vaste zitplaatsen.",
+    contact:
+      "Voor vragen over je ticket of dit beleid, neem contact op via lionel@musicalbasics.com.",
+    footerLink: "Annulerings- en terugbetalingsbeleid",
+  },
   // TODO: NL native review (Luc) — footer
   footer: {
     rights: "Alle rechten voorbehouden.",
@@ -520,7 +553,7 @@ const nl: Dict = {
       subtitle: "Eén avond in België. Beperkt aantal plaatsen.",
       urgency: "Verkoopt snel — meer dan de helft verkocht",
       trustLine: "Veilig betalen · Directe bevestiging",
-      refundPolicy: "Gratis annulering tot 7 dagen voor het concert.",
+      refundPolicy: "Tickets zijn niet terugbetaalbaar, maar wel overdraagbaar. Volledige terugbetaling als het evenement door de organisator wordt geannuleerd.",
       socialProof: "In samenwerking met Lions Club Zaventem & CC De Factorij",
     },
     // TODO: NL native review (Luc) — testimonials (quotes themselves stay in

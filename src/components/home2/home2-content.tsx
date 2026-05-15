@@ -598,6 +598,36 @@ export default function Home2Content() {
             </div>
           </div>
         </section>
+        {/* ============== REFUND & CANCELLATION POLICY ============== */}
+        <section
+          id="refund-policy"
+          aria-labelledby="refund-policy-heading"
+          className="relative py-20 sm:py-24 bg-[#0d111c] border-y border-white/[0.05] scroll-mt-24"
+        >
+          <div className="max-w-3xl mx-auto px-4 sm:px-8">
+            <p className="font-display text-[11px] tracking-[0.35em] uppercase text-[color:var(--accent)] mb-3">
+              {t.refundPolicy.eyebrow}
+            </p>
+            <h2
+              id="refund-policy-heading"
+              className="font-display text-3xl sm:text-4xl md:text-5xl text-white uppercase tracking-tight mb-8 text-balance"
+            >
+              {t.refundPolicy.heading}
+            </h2>
+            <div className="space-y-5 text-[15px] sm:text-base leading-[1.75] text-[color:var(--muted)]">
+              <p>{t.refundPolicy.seller}</p>
+              <p>{t.refundPolicy.nonRefundable}</p>
+              <p>{t.refundPolicy.organizerCancellation}</p>
+              <p>
+                <span className="font-semibold text-white/90">
+                  {t.refundPolicy.eventDetailsLabel}:
+                </span>{" "}
+                {t.refundPolicy.eventDetails}
+              </p>
+              <p>{t.refundPolicy.contact}</p>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* ============== FOOTER ============== */}
@@ -614,6 +644,12 @@ export default function Home2Content() {
           <div className="flex flex-col md:items-end gap-2 text-[11px] uppercase tracking-[0.2em] text-white/40">
             <p>© 2026 Musical Basics. {t.footer.rights}</p>
             <p>{t.footer.location}</p>
+            <a
+              href="#refund-policy"
+              className="text-white/60 hover:text-[color:var(--accent)] transition-colors normal-case tracking-normal"
+            >
+              {t.refundPolicy.footerLink}
+            </a>
           </div>
         </div>
       </footer>
