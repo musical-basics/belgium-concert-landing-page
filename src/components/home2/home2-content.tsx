@@ -257,7 +257,10 @@ export default function Home2Content() {
             </p>
 
             {/* Livestream Option (Side-by-side concept on desktop via distinct block) */}
-            <div className="mt-24 sm:mt-32 pt-24 sm:pt-32 border-t border-white/[0.05]">
+            <div
+              id="livestream"
+              className="mt-24 sm:mt-32 pt-24 sm:pt-32 border-t border-white/[0.05] scroll-mt-24"
+            >
               <LivestreamSelector />
             </div>
           </div>
